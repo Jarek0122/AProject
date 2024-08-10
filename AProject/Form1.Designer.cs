@@ -43,7 +43,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripDropDownButton();
             this.活動訂單ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.活動上架ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -209,14 +208,6 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(179, 100);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(955, 501);
-            this.panel2.TabIndex = 3;
-            // 
             // toolStripButton4
             // 
             this.toolStripButton4.AutoSize = false;
@@ -283,12 +274,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 601);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "main";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -313,7 +303,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripDropDownButton toolStripButton4;
         private System.Windows.Forms.ToolStripMenuItem 活動訂單ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 活動上架ToolStripMenuItem;
