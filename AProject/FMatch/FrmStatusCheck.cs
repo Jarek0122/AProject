@@ -19,7 +19,7 @@ namespace AProject.FMatch
 
         private void FrmStatusCheck_Load(object sender, EventArgs e)
         {
-  //12312313212
+  
         }
     }
 
