@@ -30,8 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.活動訂單ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.活動上架ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.活動廣告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.收驚管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.點燈ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
@@ -43,14 +50,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.活動訂單ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.活動上架ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.活動廣告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.收驚管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.點燈ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,6 +75,40 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.AutoSize = false;
+            this.toolStripButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.活動訂單ToolStripMenuItem,
+            this.活動上架ToolStripMenuItem,
+            this.活動廣告ToolStripMenuItem});
+            this.toolStripButton4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(180, 35);
+            this.toolStripButton4.Text = "活動管理";
+            this.toolStripButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // 活動訂單ToolStripMenuItem
+            // 
+            this.活動訂單ToolStripMenuItem.Name = "活動訂單ToolStripMenuItem";
+            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.活動訂單ToolStripMenuItem.Text = "活動訂單";
+            // 
+            // 活動上架ToolStripMenuItem
+            // 
+            this.活動上架ToolStripMenuItem.Name = "活動上架ToolStripMenuItem";
+            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.活動上架ToolStripMenuItem.Text = "活動上架";
+            // 
+            // 活動廣告ToolStripMenuItem
+            // 
+            this.活動廣告ToolStripMenuItem.Name = "活動廣告ToolStripMenuItem";
+            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.活動廣告ToolStripMenuItem.Text = "活動廣告";
+            // 
             // toolStripButton6
             // 
             this.toolStripButton6.AutoSize = false;
@@ -87,6 +120,7 @@
             this.toolStripButton6.Size = new System.Drawing.Size(180, 35);
             this.toolStripButton6.Text = "訂單管理";
             this.toolStripButton6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // toolStripButton7
             // 
@@ -99,6 +133,33 @@
             this.toolStripButton7.Size = new System.Drawing.Size(180, 35);
             this.toolStripButton7.Text = "商品管理";
             this.toolStripButton7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.AutoSize = false;
+            this.toolStripButton8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.收驚管理ToolStripMenuItem,
+            this.點燈ToolStripMenuItem});
+            this.toolStripButton8.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(180, 35);
+            this.toolStripButton8.Text = "服務管理";
+            this.toolStripButton8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // 收驚管理ToolStripMenuItem
+            // 
+            this.收驚管理ToolStripMenuItem.Name = "收驚管理ToolStripMenuItem";
+            this.收驚管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.收驚管理ToolStripMenuItem.Text = "收驚";
+            // 
+            // 點燈ToolStripMenuItem
+            // 
+            this.點燈ToolStripMenuItem.Name = "點燈ToolStripMenuItem";
+            this.點燈ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.點燈ToolStripMenuItem.Text = "點燈";
             // 
             // toolStripButton9
             // 
@@ -209,81 +270,11 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(179, 100);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(955, 501);
-            this.panel2.TabIndex = 3;
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.AutoSize = false;
-            this.toolStripButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.活動訂單ToolStripMenuItem,
-            this.活動上架ToolStripMenuItem,
-            this.活動廣告ToolStripMenuItem});
-            this.toolStripButton4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(180, 35);
-            this.toolStripButton4.Text = "活動管理";
-            this.toolStripButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // 活動訂單ToolStripMenuItem
-            // 
-            this.活動訂單ToolStripMenuItem.Name = "活動訂單ToolStripMenuItem";
-            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
-            this.活動訂單ToolStripMenuItem.Text = "活動訂單";
-            // 
-            // 活動上架ToolStripMenuItem
-            // 
-            this.活動上架ToolStripMenuItem.Name = "活動上架ToolStripMenuItem";
-            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
-            this.活動上架ToolStripMenuItem.Text = "活動上架";
-            // 
-            // 活動廣告ToolStripMenuItem
-            // 
-            this.活動廣告ToolStripMenuItem.Name = "活動廣告ToolStripMenuItem";
-            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
-            this.活動廣告ToolStripMenuItem.Text = "活動廣告";
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.AutoSize = false;
-            this.toolStripButton8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.收驚管理ToolStripMenuItem,
-            this.點燈ToolStripMenuItem});
-            this.toolStripButton8.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(180, 35);
-            this.toolStripButton8.Text = "服務管理";
-            this.toolStripButton8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // 收驚管理ToolStripMenuItem
-            // 
-            this.收驚管理ToolStripMenuItem.Name = "收驚管理ToolStripMenuItem";
-            this.收驚管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
-            this.收驚管理ToolStripMenuItem.Text = "收驚";
-            // 
-            // 點燈ToolStripMenuItem
-            // 
-            this.點燈ToolStripMenuItem.Name = "點燈ToolStripMenuItem";
-            this.點燈ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
-            this.點燈ToolStripMenuItem.Text = "點燈";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 601);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
@@ -313,7 +304,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripDropDownButton toolStripButton4;
         private System.Windows.Forms.ToolStripMenuItem 活動訂單ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 活動上架ToolStripMenuItem;
