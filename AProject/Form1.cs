@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AProject.FMatch;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace AProject
         public Form1()
         {
             InitializeComponent();
+            this.IsMdiContainer = true;
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -32,6 +34,35 @@ namespace AProject
                     b.Size = new Size(Width * 180 / 1152, Height * 32 / 648);
                 }
             }
+        }
+
+
+        private void 會員偏好維護ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPreferMainten f = new FrmPreferMainten();
+            f.MdiParent = this;
+            f.Show(); // 打開會員偏好維護 Form
+        }
+
+        private void 手動配對管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManualMatch f = new FrmManualMatch();
+            f.MdiParent = this;
+            f.Show(); // 打開手動配對管理 Form
+        }
+
+        private void 配對歷史查詢ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmHistoryQuery f = new FrmHistoryQuery();
+            f.MdiParent = this;
+            f.Show(); // 打開配對歷史查詢 Form
+        }
+
+        private void 配對狀態查看ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmStatusCheck f = new FrmStatusCheck();
+            f.MdiParent = this;
+            f.Show();// 打開配對狀態查看 Form
         }
     }
 }

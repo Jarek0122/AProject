@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FMatch\FrmHistoryQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMatch\FrmHistoryQuery.Designer.cs">
+      <DependentUpon>FrmHistoryQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMatch\FrmManualMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMatch\FrmManualMatch.Designer.cs">
+      <DependentUpon>FrmManualMatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMatch\FrmPreferMainten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMatch\FrmPreferMainten.Designer.cs">
+      <DependentUpon>FrmPreferMainten.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMatch\FrmStatusCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMatch\FrmStatusCheck.Designer.cs">
+      <DependentUpon>FrmStatusCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +78,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FMatch\FrmHistoryQuery.resx">
+      <DependentUpon>FrmHistoryQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMatch\FrmManualMatch.resx">
+      <DependentUpon>FrmManualMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMatch\FrmPreferMainten.resx">
+      <DependentUpon>FrmPreferMainten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMatch\FrmStatusCheck.resx">
+      <DependentUpon>FrmStatusCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CMatch\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
