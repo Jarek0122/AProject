@@ -51,13 +51,6 @@ namespace AProject
             f.Show(); // 打開自動配對管理 Form
         }
 
-        private void 配對歷史查詢ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmHistoryQuery f = new FrmHistoryQuery();
-            f.MdiParent = this;
-            f.Show(); // 打開配對歷史查詢 Form
-        }
-
         private void 配對狀態查看ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmStatusCheck f = new FrmStatusCheck();

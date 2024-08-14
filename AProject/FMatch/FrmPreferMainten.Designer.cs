@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPreferMainten));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.bntSave = new System.Windows.Forms.ToolStripButton();
@@ -80,6 +80,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.AutoSize = false;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -89,9 +90,9 @@
             this.btnSearchId,
             this.txtSearchId,
             this.toolStripLabel1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 536);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 518);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1191, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(1191, 50);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -101,7 +102,7 @@
             this.bntSave.Image = ((System.Drawing.Image)(resources.GetObject("bntSave.Image")));
             this.bntSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bntSave.Name = "bntSave";
-            this.bntSave.Size = new System.Drawing.Size(76, 29);
+            this.bntSave.Size = new System.Drawing.Size(76, 47);
             this.bntSave.Text = "保存";
             this.bntSave.Click += new System.EventHandler(this.bntSave_Click);
             // 
@@ -111,7 +112,7 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(76, 29);
+            this.toolStripButton3.Size = new System.Drawing.Size(76, 47);
             this.toolStripButton3.Text = "刪除";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
@@ -121,7 +122,7 @@
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(76, 29);
+            this.toolStripButton4.Size = new System.Drawing.Size(76, 47);
             this.toolStripButton4.Text = "關閉";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
@@ -132,7 +133,7 @@
             this.btnSearchId.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchId.Image")));
             this.btnSearchId.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearchId.Name = "btnSearchId";
-            this.btnSearchId.Size = new System.Drawing.Size(72, 29);
+            this.btnSearchId.Size = new System.Drawing.Size(72, 47);
             this.btnSearchId.Text = "搜尋";
             this.btnSearchId.Click += new System.EventHandler(this.btnSearchId_Click_1);
             // 
@@ -149,7 +150,7 @@
             this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripLabel1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(118, 29);
+            this.toolStripLabel1.Size = new System.Drawing.Size(118, 47);
             this.toolStripLabel1.Text = "輸入會員ID:";
             // 
             // splitContainer1
@@ -176,20 +177,20 @@
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Size = new System.Drawing.Size(1191, 490);
+            this.splitContainer1.Size = new System.Drawing.Size(1191, 472);
             this.splitContainer1.SplitterDistance = 582;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微軟正黑體", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("微軟正黑體", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -197,19 +198,20 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(582, 490);
+            this.dataGridView1.Size = new System.Drawing.Size(582, 472);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // checkedListBox2
             // 
-            this.checkedListBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.checkedListBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkedListBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(114, 305);
+            this.checkedListBox2.Location = new System.Drawing.Point(114, 323);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(479, 178);
+            this.checkedListBox2.Size = new System.Drawing.Size(479, 120);
             this.checkedListBox2.TabIndex = 5;
             // 
             // checkedListBox1
@@ -220,7 +222,7 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(114, 121);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(479, 178);
+            this.checkedListBox1.Size = new System.Drawing.Size(479, 149);
             this.checkedListBox1.TabIndex = 4;
             this.checkedListBox1.ThreeDCheckBoxes = true;
             // 
@@ -325,7 +327,7 @@
             this.label6.AutoEllipsis = true;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(16, 305);
+            this.label6.Location = new System.Drawing.Point(16, 323);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 25);
             this.label6.TabIndex = 0;
@@ -400,7 +402,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericMaxAge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMinAge)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

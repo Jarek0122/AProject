@@ -42,7 +42,6 @@
             this.btnMatchMainten = new System.Windows.Forms.ToolStripSplitButton();
             this.會員偏好維護ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.手動配對管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.配對歷史查詢ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.配對狀態查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
@@ -170,8 +169,7 @@
             this.btnMatchMainten.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.會員偏好維護ToolStripMenuItem,
             this.手動配對管理ToolStripMenuItem,
-            this.配對狀態查看ToolStripMenuItem,
-            this.配對歷史查詢ToolStripMenuItem});
+            this.配對狀態查看ToolStripMenuItem});
             this.btnMatchMainten.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnMatchMainten.Image = ((System.Drawing.Image)(resources.GetObject("btnMatchMainten.Image")));
             this.btnMatchMainten.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -194,13 +192,6 @@
             this.手動配對管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.手動配對管理ToolStripMenuItem.Text = "自動配對管理";
             this.手動配對管理ToolStripMenuItem.Click += new System.EventHandler(this.自動配對管理ToolStripMenuItem_Click);
-            // 
-            // 配對歷史查詢ToolStripMenuItem
-            // 
-            this.配對歷史查詢ToolStripMenuItem.Name = "配對歷史查詢ToolStripMenuItem";
-            this.配對歷史查詢ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
-            this.配對歷史查詢ToolStripMenuItem.Text = "配對歷史查詢";
-            this.配對歷史查詢ToolStripMenuItem.Click += new System.EventHandler(this.配對歷史查詢ToolStripMenuItem_Click);
             // 
             // 配對狀態查看ToolStripMenuItem
             // 
@@ -350,7 +341,6 @@
         private System.Windows.Forms.ToolStripSplitButton btnMatchMainten;
         private System.Windows.Forms.ToolStripMenuItem 會員偏好維護ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 手動配對管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 配對歷史查詢ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 配對狀態查看ToolStripMenuItem;
     }
 }

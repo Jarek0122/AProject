@@ -44,7 +44,7 @@ namespace AProject.FMatch
         }
         private void FrmStatusCheck_Load(object sender, EventArgs e)
         {
-            LoadMatchStatus();  // 在表單加載時顯示配對狀態
+            LoadMatchStatus();  
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -53,12 +53,10 @@ namespace AProject.FMatch
 
             if (string.IsNullOrEmpty(searchUserId))
             {
-                // 如果搜尋欄位為空，重新加載所有配對狀態
                 LoadMatchStatus();
             }
             else
             {
-                // 否則根據會員ID進行搜尋
                 using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
                 {
                     try
@@ -92,7 +90,6 @@ namespace AProject.FMatch
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            // 創建 SaveFileDialog 讓用戶選擇保存路徑和文件名
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel 文件|*.xlsx";
             saveFileDialog.Title = "匯出配對狀態";
@@ -113,7 +110,6 @@ namespace AProject.FMatch
         }
         private void ExportToExcel(string filePath)
         {
-            // 使用 EPPlus 來創建和保存 Excel 文件
             using (ExcelPackage package = new ExcelPackage())
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("MatchStatus");
@@ -130,7 +126,6 @@ namespace AProject.FMatch
                         worksheet.Cells[i + 2, j + 1].Value = dgvMatchStatus.Rows[i].Cells[j].Value?.ToString();
                     }
                 }
-                // 保存 Excel 文件到指定路徑
                 package.SaveAs(new FileInfo(filePath));
             }
         }

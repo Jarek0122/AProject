@@ -79,12 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CMatch\CUserPrefer.cs" />
-    <Compile Include="FMatch\FrmHistoryQuery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMatch\FrmHistoryQuery.Designer.cs">
-      <DependentUpon>FrmHistoryQuery.cs</DependentUpon>
-    </Compile>
     <Compile Include="FMatch\FrmAutoMatch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,9 +105,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FMatch\FrmHistoryQuery.resx">
-      <DependentUpon>FrmHistoryQuery.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FMatch\FrmAutoMatch.resx">
       <DependentUpon>FrmAutoMatch.cs</DependentUpon>
     </EmbeddedResource>
