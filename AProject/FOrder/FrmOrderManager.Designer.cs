@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOrderCreate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblOrder = new System.Windows.Forms.Label();
             this.btnOrderRefresh = new System.Windows.Forms.Button();
             this.btnOrderDelete = new System.Windows.Forms.Button();
-            this.btnOrderEdit = new System.Windows.Forms.Button();
+            this.btnOrderUpdate = new System.Windows.Forms.Button();
             this.txtOrder = new System.Windows.Forms.TextBox();
             this.btnOrderRead = new System.Windows.Forms.Button();
             this.lblReview = new System.Windows.Forms.Label();
@@ -43,29 +42,19 @@
             this.btnReviewRefresh = new System.Windows.Forms.Button();
             this.btnReviewCreate = new System.Windows.Forms.Button();
             this.btnReviewDelete = new System.Windows.Forms.Button();
-            this.btnReviewEdit = new System.Windows.Forms.Button();
+            this.btnReviewUpdate = new System.Windows.Forms.Button();
             this.txtReview = new System.Windows.Forms.TextBox();
             this.btnReviewRead = new System.Windows.Forms.Button();
             this.btnDonateRefresh = new System.Windows.Forms.Button();
             this.btnDonateCreate = new System.Windows.Forms.Button();
             this.btnDonateDelete = new System.Windows.Forms.Button();
-            this.btnDonateEdit = new System.Windows.Forms.Button();
+            this.btnDonateUpdate = new System.Windows.Forms.Button();
             this.txtDonate = new System.Windows.Forms.TextBox();
             this.btnDonateRead = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnOrderCreate
-            // 
-            this.btnOrderCreate.Location = new System.Drawing.Point(93, 39);
-            this.btnOrderCreate.Name = "btnOrderCreate";
-            this.btnOrderCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnOrderCreate.TabIndex = 0;
-            this.btnOrderCreate.Text = "新增";
-            this.btnOrderCreate.UseVisualStyleBackColor = true;
-            this.btnOrderCreate.Click += new System.EventHandler(this.btnOrderCreate_Click);
             // 
             // dataGridView1
             // 
@@ -100,7 +89,7 @@
             // 
             // btnOrderDelete
             // 
-            this.btnOrderDelete.Location = new System.Drawing.Point(174, 39);
+            this.btnOrderDelete.Location = new System.Drawing.Point(93, 39);
             this.btnOrderDelete.Name = "btnOrderDelete";
             this.btnOrderDelete.Size = new System.Drawing.Size(75, 23);
             this.btnOrderDelete.TabIndex = 4;
@@ -108,21 +97,21 @@
             this.btnOrderDelete.UseVisualStyleBackColor = true;
             this.btnOrderDelete.Click += new System.EventHandler(this.btnOrderDelete_Click);
             // 
-            // btnOrderEdit
+            // btnOrderUpdate
             // 
-            this.btnOrderEdit.Location = new System.Drawing.Point(255, 39);
-            this.btnOrderEdit.Name = "btnOrderEdit";
-            this.btnOrderEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnOrderEdit.TabIndex = 5;
-            this.btnOrderEdit.Text = "修改";
-            this.btnOrderEdit.UseVisualStyleBackColor = true;
-            this.btnOrderEdit.Click += new System.EventHandler(this.btnOrderEdit_Click);
+            this.btnOrderUpdate.Location = new System.Drawing.Point(174, 39);
+            this.btnOrderUpdate.Name = "btnOrderUpdate";
+            this.btnOrderUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnOrderUpdate.TabIndex = 5;
+            this.btnOrderUpdate.Text = "修改";
+            this.btnOrderUpdate.UseVisualStyleBackColor = true;
+            this.btnOrderUpdate.Click += new System.EventHandler(this.btnOrderUpdate_Click);
             // 
             // txtOrder
             // 
-            this.txtOrder.Location = new System.Drawing.Point(336, 37);
+            this.txtOrder.Location = new System.Drawing.Point(255, 37);
             this.txtOrder.Name = "txtOrder";
-            this.txtOrder.Size = new System.Drawing.Size(140, 25);
+            this.txtOrder.Size = new System.Drawing.Size(221, 25);
             this.txtOrder.TabIndex = 6;
             // 
             // btnOrderRead
@@ -143,7 +132,7 @@
             this.lblReview.Name = "lblReview";
             this.lblReview.Size = new System.Drawing.Size(105, 29);
             this.lblReview.TabIndex = 8;
-            this.lblReview.Text = "評論管理";
+            this.lblReview.Text = "評價管理";
             // 
             // lblDonation
             // 
@@ -207,15 +196,15 @@
             this.btnReviewDelete.UseVisualStyleBackColor = true;
             this.btnReviewDelete.Click += new System.EventHandler(this.btnReviewDelete_Click);
             // 
-            // btnReviewEdit
+            // btnReviewUpdate
             // 
-            this.btnReviewEdit.Location = new System.Drawing.Point(741, 39);
-            this.btnReviewEdit.Name = "btnReviewEdit";
-            this.btnReviewEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnReviewEdit.TabIndex = 15;
-            this.btnReviewEdit.Text = "修改";
-            this.btnReviewEdit.UseVisualStyleBackColor = true;
-            this.btnReviewEdit.Click += new System.EventHandler(this.btnReviewEdit_Click);
+            this.btnReviewUpdate.Location = new System.Drawing.Point(741, 39);
+            this.btnReviewUpdate.Name = "btnReviewUpdate";
+            this.btnReviewUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnReviewUpdate.TabIndex = 15;
+            this.btnReviewUpdate.Text = "修改";
+            this.btnReviewUpdate.UseVisualStyleBackColor = true;
+            this.btnReviewUpdate.Click += new System.EventHandler(this.btnReviewUpdate_Click);
             // 
             // txtReview
             // 
@@ -264,15 +253,15 @@
             this.btnDonateDelete.UseVisualStyleBackColor = true;
             this.btnDonateDelete.Click += new System.EventHandler(this.btnDonateDelete_Click);
             // 
-            // btnDonateEdit
+            // btnDonateUpdate
             // 
-            this.btnDonateEdit.Location = new System.Drawing.Point(255, 293);
-            this.btnDonateEdit.Name = "btnDonateEdit";
-            this.btnDonateEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnDonateEdit.TabIndex = 21;
-            this.btnDonateEdit.Text = "修改";
-            this.btnDonateEdit.UseVisualStyleBackColor = true;
-            this.btnDonateEdit.Click += new System.EventHandler(this.btnDonateEdit_Click);
+            this.btnDonateUpdate.Location = new System.Drawing.Point(255, 293);
+            this.btnDonateUpdate.Name = "btnDonateUpdate";
+            this.btnDonateUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnDonateUpdate.TabIndex = 21;
+            this.btnDonateUpdate.Text = "修改";
+            this.btnDonateUpdate.UseVisualStyleBackColor = true;
+            this.btnDonateUpdate.Click += new System.EventHandler(this.btnDonateUpdate_Click);
             // 
             // txtDonate
             // 
@@ -286,9 +275,8 @@
             this.btnDonateRead.Location = new System.Drawing.Point(482, 293);
             this.btnDonateRead.Name = "btnDonateRead";
             this.btnDonateRead.Size = new System.Drawing.Size(75, 23);
-            this.btnDonateRead.TabIndex = 23;
+            this.btnDonateRead.TabIndex = 0;
             this.btnDonateRead.Text = "查詢";
-            this.btnDonateRead.UseVisualStyleBackColor = true;
             this.btnDonateRead.Click += new System.EventHandler(this.btnDonateRead_Click);
             // 
             // FrmOrderManager
@@ -298,13 +286,13 @@
             this.ClientSize = new System.Drawing.Size(834, 453);
             this.Controls.Add(this.btnDonateRead);
             this.Controls.Add(this.txtDonate);
-            this.Controls.Add(this.btnDonateEdit);
+            this.Controls.Add(this.btnDonateUpdate);
             this.Controls.Add(this.btnDonateDelete);
             this.Controls.Add(this.btnDonateCreate);
             this.Controls.Add(this.btnDonateRefresh);
             this.Controls.Add(this.btnReviewRead);
             this.Controls.Add(this.txtReview);
-            this.Controls.Add(this.btnReviewEdit);
+            this.Controls.Add(this.btnReviewUpdate);
             this.Controls.Add(this.btnReviewDelete);
             this.Controls.Add(this.btnReviewCreate);
             this.Controls.Add(this.btnReviewRefresh);
@@ -314,12 +302,11 @@
             this.Controls.Add(this.lblReview);
             this.Controls.Add(this.btnOrderRead);
             this.Controls.Add(this.txtOrder);
-            this.Controls.Add(this.btnOrderEdit);
+            this.Controls.Add(this.btnOrderUpdate);
             this.Controls.Add(this.btnOrderDelete);
             this.Controls.Add(this.btnOrderRefresh);
             this.Controls.Add(this.lblOrder);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnOrderCreate);
             this.Name = "FrmOrderManager";
             this.Text = "FrmOrderManager";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -334,13 +321,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOrderCreate;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblOrder;
         private System.Windows.Forms.Button btnOrderRefresh;
         private System.Windows.Forms.Button btnOrderDelete;
-        private System.Windows.Forms.Button btnOrderEdit;
+        private System.Windows.Forms.Button btnOrderUpdate;
         private System.Windows.Forms.TextBox txtOrder;
         private System.Windows.Forms.Button btnOrderRead;
         private System.Windows.Forms.Label lblReview;
@@ -350,13 +335,13 @@
         private System.Windows.Forms.Button btnReviewRefresh;
         private System.Windows.Forms.Button btnReviewCreate;
         private System.Windows.Forms.Button btnReviewDelete;
-        private System.Windows.Forms.Button btnReviewEdit;
+        private System.Windows.Forms.Button btnReviewUpdate;
         private System.Windows.Forms.TextBox txtReview;
         private System.Windows.Forms.Button btnReviewRead;
         private System.Windows.Forms.Button btnDonateRefresh;
         private System.Windows.Forms.Button btnDonateCreate;
         private System.Windows.Forms.Button btnDonateDelete;
-        private System.Windows.Forms.Button btnDonateEdit;
+        private System.Windows.Forms.Button btnDonateUpdate;
         private System.Windows.Forms.TextBox txtDonate;
         private System.Windows.Forms.Button btnDonateRead;
     }

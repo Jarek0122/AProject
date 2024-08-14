@@ -46,14 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\FieldBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\FieldBox.Designer.cs" />
     <Compile Include="COrder\CDonation.cs" />
     <Compile Include="COrder\COrder.cs" />
     <Compile Include="COrder\COrderDetail.cs" />
+    <Compile Include="FOrder\FrmDonationEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FOrder\FrmDonationEditor.Designer.cs">
+      <DependentUpon>FrmDonationEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOrder\FrmOrderEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FOrder\FrmOrderEditor.Designer.cs">
+      <DependentUpon>FrmOrderEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FOrder\FrmOrderManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FOrder\FrmOrderManager.Designer.cs">
       <DependentUpon>FrmOrderManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FOrder\FrmReviewEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FOrder\FrmReviewEditor.Designer.cs">
+      <DependentUpon>FrmReviewEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -63,8 +85,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Component\FieldBox.resx" />
+    <EmbeddedResource Include="FOrder\FrmDonationEditor.resx">
+      <DependentUpon>FrmDonationEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOrder\FrmOrderEditor.resx">
+      <DependentUpon>FrmOrderEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FOrder\FrmOrderManager.resx">
       <DependentUpon>FrmOrderManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FOrder\FrmReviewEditor.resx">
+      <DependentUpon>FrmReviewEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
