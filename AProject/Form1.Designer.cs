@@ -170,8 +170,8 @@
             this.btnMatchMainten.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.會員偏好維護ToolStripMenuItem,
             this.手動配對管理ToolStripMenuItem,
-            this.配對歷史查詢ToolStripMenuItem,
-            this.配對狀態查看ToolStripMenuItem});
+            this.配對狀態查看ToolStripMenuItem,
+            this.配對歷史查詢ToolStripMenuItem});
             this.btnMatchMainten.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnMatchMainten.Image = ((System.Drawing.Image)(resources.GetObject("btnMatchMainten.Image")));
             this.btnMatchMainten.ImageTransparentColor = System.Drawing.Color.Magenta;

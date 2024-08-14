@@ -462,5 +462,47 @@ namespace AProject.FMatch
                 MessageBox.Show("DataGridView 尚未綁定數據。");
             }
         }
+        private void resetGridStyle()
+        {
+            dataGridView1.Columns[0].Width = 0;
+            dataGridView1.Columns[1].Width = 50;
+            dataGridView1.Columns[1].HeaderText = "會員Id";
+            dataGridView1.Columns[2].Width = 80;
+            dataGridView1.Columns[2].HeaderText = "暱稱";
+            dataGridView1.Columns[3].Width = 0;
+            dataGridView1.Columns[3].HeaderText = "地區";
+            dataGridView1.Columns[4].Width = 60;
+            dataGridView1.Columns[4].HeaderText = "身高";
+            dataGridView1.Columns[5].Width = 50;
+            dataGridView1.Columns[5].HeaderText = "年齡";
+            dataGridView1.Columns[6].Width = 60;
+            dataGridView1.Columns[6].HeaderText = "偏好身高上限";
+            dataGridView1.Columns[7].Width = 60;
+            dataGridView1.Columns[7].HeaderText = "偏好身高下限";
+            dataGridView1.Columns[8].Width = 50;
+            dataGridView1.Columns[8].HeaderText = "偏好年齡上限";
+            dataGridView1.Columns[9].Width = 50;
+            dataGridView1.Columns[9].HeaderText = "偏好年齡下限";
+            dataGridView1.Columns[10].Width = 50;
+            dataGridView1.Columns[10].HeaderText = "偏好性別";
+            bool isColorChange = false;
+            int count = 0;
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+                count++;
+                isColorChange = !isColorChange;
+                r.DefaultCellStyle.BackColor = Color.White;
+                if (isColorChange)
+                    r.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+                r.DefaultCellStyle.Font = new Font("微軟正黑體", 11);
+                r.Height = 50;
+                r.HeaderCell.Value = count.ToString();
+            }
+        }
+
+        private void FrmPreferMainten_Paint(object sender, PaintEventArgs e)
+        {
+            resetGridStyle();
+        }
     }
 }

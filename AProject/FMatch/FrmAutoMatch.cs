@@ -160,7 +160,7 @@ namespace AProject.FMatch
                     lblMatchedName.Text = "姓名: " + matchReader["fNickName"].ToString();
                     lblMatchedAge.Text = "年齡: " + matchReader["fAge"].ToString();
                     lblMatchedHeight.Text = "身高: " + matchReader["fHeight"].ToString();
-                    lblMatchedGender.Text = "性別: " + matchReader["fUserGender"].ToString(); 
+                    lblMatchedGender.Text = "性別: " + matchReader["fUserGender"].ToString();
                     lblMatchedHobbies.Text = "興趣匹配數: " + matchReader["HobbyMatchCount"].ToString();
                     lblMatchedTraits.Text = "特質匹配數: " + matchReader["TraitsMatchCount"].ToString();
 
@@ -182,7 +182,6 @@ namespace AProject.FMatch
         private void btnSendNotification_Click(object sender, EventArgs e)
         {
             int selectedUserId = GetSelectedUserId();  // 獲取選中的會員ID
-
             // 確保已選中會員且已找到匹配的會員
             if (selectedUserId != -1 && matchedUserId != -1)
             {
@@ -237,15 +236,45 @@ namespace AProject.FMatch
                         cmdInsert.ExecuteNonQuery();
                     }
                 }
-
-                // 顯示彈出視窗通知用戶
                 MessageBox.Show("配對通知已寄出", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                // 如果未找到匹配的會員或未選擇會員，顯示錯誤提示
                 MessageBox.Show("未能寄送配對通知。請確保已選擇會員並完成配對。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
+        private void resetGridStyle()
+        {
+            dgvMembers.Columns[0].Width = 50;
+            dgvMembers.Columns[0].HeaderText = "會員Id";
+            dgvMembers.Columns[1].Width = 80;
+            dgvMembers.Columns[1].HeaderText = "暱稱";
+            dgvMembers.Columns[2].Width = 80;
+            dgvMembers.Columns[2].HeaderText = "年齡";
+            dgvMembers.Columns[3].Width = 0;
+            dgvMembers.Columns[3].HeaderText = "地區";
+            dgvMembers.Columns[4].Width = 80;
+            dgvMembers.Columns[4].HeaderText = "身高";
+            dgvMembers.Columns[5].Width = 80;
+            dgvMembers.Columns[5].HeaderText = "性別";
+            bool isColorChange = false;
+            int count = 0;
+            foreach (DataGridViewRow r in dgvMembers.Rows)
+            {
+                count++;
+                isColorChange = !isColorChange;
+                r.DefaultCellStyle.BackColor = Color.White;
+                if (isColorChange)
+                    r.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+                r.DefaultCellStyle.Font = new Font("微軟正黑體", 11);
+                r.Height = 50;
+                r.HeaderCell.Value = count.ToString();
+            }
+        }
+
+        private void FrmAutoMatch_Paint(object sender, PaintEventArgs e)
+        {
+            resetGridStyle();
+        }
+    }  
 }
