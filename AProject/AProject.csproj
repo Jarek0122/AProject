@@ -46,16 +46,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\ActBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\ActBox.Designer.cs">
+      <DependentUpon>ActBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\ActTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\ActTextBox.Designer.cs">
+      <DependentUpon>ActTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="CAct\CAct.cs" />
+    <Compile Include="FrmActManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActManager.Designer.cs">
+      <DependentUpon>FrmActManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FAct\FrmActEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAct\FrmActEditor.Designer.cs">
+      <DependentUpon>FrmActEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FAct\FrmActRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAct\FrmActRecord.Designer.cs">
+      <DependentUpon>FrmActRecord.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Component\ActBox.resx">
+      <DependentUpon>ActBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\ActTextBox.resx">
+      <DependentUpon>ActTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmActManager.resx">
+      <DependentUpon>FrmActManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +106,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FAct\FrmActEditor.resx">
+      <DependentUpon>FrmActEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FAct\FrmActRecord.resx">
+      <DependentUpon>FrmActRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -79,5 +125,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

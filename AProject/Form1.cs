@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AProject.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace AProject
 {
     public partial class Form1 : Form
     {
+        FrmActManager fAM;
+        FrmActRecord fAR;
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +34,38 @@ namespace AProject
                 {
                     b.Size = new Size(Width * 180 / 1152, Height * 32 / 648);
                 }
+            }
+        }        
+
+        private void 活動上架ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fAM != null && !fAM.IsDisposed)
+            {
+                fAM.Activate();
+            }
+            else
+            {
+                fAM = new FrmActManager()
+                {
+                    MdiParent = this
+                };
+                fAM.Show();
+            }
+        }
+
+        private void 活動訂單ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fAR != null && !fAR.IsDisposed)
+            {
+                fAR.Activate();
+            }
+            else
+            {
+                fAR = new FrmActRecord
+                {
+                    MdiParent= this
+                };
+                fAR.Show();
             }
         }
     }
