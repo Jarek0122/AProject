@@ -151,11 +151,8 @@ namespace AProject.FMatch
                 DataTable dt = dataGridView1.DataSource as DataTable;
                 if (dt != null && _position >= 0 && _position < dt.Rows.Count)
                 {
-                    // 標記選中行為刪除
                     DataRow dr = dt.Rows[_position];
                     dr.Delete();
-
-                    // 更新資料庫
                     if (_adapter != null)
                     {
                         _adapter.Update(dt);

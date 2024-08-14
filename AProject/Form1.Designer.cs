@@ -184,28 +184,28 @@
             // 會員偏好維護ToolStripMenuItem
             // 
             this.會員偏好維護ToolStripMenuItem.Name = "會員偏好維護ToolStripMenuItem";
-            this.會員偏好維護ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.會員偏好維護ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.會員偏好維護ToolStripMenuItem.Text = "會員偏好維護";
             this.會員偏好維護ToolStripMenuItem.Click += new System.EventHandler(this.會員偏好維護ToolStripMenuItem_Click);
             // 
             // 手動配對管理ToolStripMenuItem
             // 
             this.手動配對管理ToolStripMenuItem.Name = "手動配對管理ToolStripMenuItem";
-            this.手動配對管理ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
-            this.手動配對管理ToolStripMenuItem.Text = "手動配對管理";
-            this.手動配對管理ToolStripMenuItem.Click += new System.EventHandler(this.手動配對管理ToolStripMenuItem_Click);
+            this.手動配對管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.手動配對管理ToolStripMenuItem.Text = "自動配對管理";
+            this.手動配對管理ToolStripMenuItem.Click += new System.EventHandler(this.自動配對管理ToolStripMenuItem_Click);
             // 
             // 配對歷史查詢ToolStripMenuItem
             // 
             this.配對歷史查詢ToolStripMenuItem.Name = "配對歷史查詢ToolStripMenuItem";
-            this.配對歷史查詢ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.配對歷史查詢ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.配對歷史查詢ToolStripMenuItem.Text = "配對歷史查詢";
             this.配對歷史查詢ToolStripMenuItem.Click += new System.EventHandler(this.配對歷史查詢ToolStripMenuItem_Click);
             // 
             // 配對狀態查看ToolStripMenuItem
             // 
             this.配對狀態查看ToolStripMenuItem.Name = "配對狀態查看ToolStripMenuItem";
-            this.配對狀態查看ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.配對狀態查看ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.配對狀態查看ToolStripMenuItem.Text = "配對狀態查看";
             this.配對狀態查看ToolStripMenuItem.Click += new System.EventHandler(this.配對狀態查看ToolStripMenuItem_Click);
             // 

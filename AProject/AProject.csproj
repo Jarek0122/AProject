@@ -53,11 +53,11 @@
     <Compile Include="FMatch\FrmHistoryQuery.Designer.cs">
       <DependentUpon>FrmHistoryQuery.cs</DependentUpon>
     </Compile>
-    <Compile Include="FMatch\FrmManualMatch.cs">
+    <Compile Include="FMatch\FrmAutoMatch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FMatch\FrmManualMatch.Designer.cs">
-      <DependentUpon>FrmManualMatch.cs</DependentUpon>
+    <Compile Include="FMatch\FrmAutoMatch.Designer.cs">
+      <DependentUpon>FrmAutoMatch.cs</DependentUpon>
     </Compile>
     <Compile Include="FMatch\FrmPreferMainten.cs">
       <SubType>Form</SubType>
@@ -82,8 +82,8 @@
     <EmbeddedResource Include="FMatch\FrmHistoryQuery.resx">
       <DependentUpon>FrmHistoryQuery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FMatch\FrmManualMatch.resx">
-      <DependentUpon>FrmManualMatch.cs</DependentUpon>
+    <EmbeddedResource Include="FMatch\FrmAutoMatch.resx">
+      <DependentUpon>FrmAutoMatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMatch\FrmPreferMainten.resx">
       <DependentUpon>FrmPreferMainten.cs</DependentUpon>

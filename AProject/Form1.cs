@@ -44,11 +44,11 @@ namespace AProject
             f.Show(); // 打開會員偏好維護 Form
         }
 
-        private void 手動配對管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 自動配對管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmManualMatch f = new FrmManualMatch();
+            FrmAutoMatch f = new FrmAutoMatch();
             f.MdiParent = this;
-            f.Show(); // 打開手動配對管理 Form
+            f.Show(); // 打開自動配對管理 Form
         }
 
         private void 配對歷史查詢ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,5 +64,7 @@ namespace AProject
             f.MdiParent = this;
             f.Show();// 打開配對狀態查看 Form
         }
+
+        
     }
 }

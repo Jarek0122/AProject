@@ -68,9 +68,11 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1304, 46);
+            this.label1.Size = new System.Drawing.Size(1199, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "會員偏好維護";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -86,9 +88,9 @@
             this.btnSearchId,
             this.txtSearchId,
             this.toolStripLabel1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 597);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 577);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1304, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(1199, 32);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -131,7 +133,6 @@
             this.btnSearchId.Name = "btnSearchId";
             this.btnSearchId.Size = new System.Drawing.Size(72, 29);
             this.btnSearchId.Text = "搜尋";
-            this.btnSearchId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearchId.Click += new System.EventHandler(this.btnSearchId_Click_1);
             // 
             // txtSearchId
@@ -174,8 +175,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Size = new System.Drawing.Size(1304, 551);
-            this.splitContainer1.SplitterDistance = 638;
+            this.splitContainer1.Size = new System.Drawing.Size(1199, 531);
+            this.splitContainer1.SplitterDistance = 586;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGridView1
@@ -187,7 +188,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(638, 551);
+            this.dataGridView1.Size = new System.Drawing.Size(586, 531);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
@@ -199,7 +200,7 @@
             this.checkedListBox2.FormattingEnabled = true;
             this.checkedListBox2.Location = new System.Drawing.Point(114, 336);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(536, 178);
+            this.checkedListBox2.Size = new System.Drawing.Size(483, 178);
             this.checkedListBox2.TabIndex = 5;
             // 
             // checkedListBox1
@@ -210,7 +211,7 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(114, 121);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(536, 178);
+            this.checkedListBox1.Size = new System.Drawing.Size(483, 178);
             this.checkedListBox1.TabIndex = 4;
             this.checkedListBox1.ThreeDCheckBoxes = true;
             // 
@@ -368,7 +369,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1304, 629);
+            this.ClientSize = new System.Drawing.Size(1199, 609);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label1);
