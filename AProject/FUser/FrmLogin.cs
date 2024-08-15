@@ -47,5 +47,10 @@ namespace AProject.FUser
             else
                 Close();
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

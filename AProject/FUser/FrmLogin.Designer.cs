@@ -37,7 +37,7 @@
             // fbPassword
             // 
             this.fbPassword.fieldName = "密碼:";
-            this.fbPassword.fieldValue = "";
+            this.fbPassword.fieldValue = "qwer1234";
             this.fbPassword.Location = new System.Drawing.Point(139, 99);
             this.fbPassword.Name = "fbPassword";
             this.fbPassword.Size = new System.Drawing.Size(353, 34);
@@ -46,7 +46,7 @@
             // fbEmail
             // 
             this.fbEmail.fieldName = "信箱:";
-            this.fbEmail.fieldValue = "";
+            this.fbEmail.fieldValue = "focus911209@gmail.com";
             this.fbEmail.Location = new System.Drawing.Point(139, 41);
             this.fbEmail.Name = "fbEmail";
             this.fbEmail.Size = new System.Drawing.Size(353, 34);
@@ -83,6 +83,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "管理員登入";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
 
         }
