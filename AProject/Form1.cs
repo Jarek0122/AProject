@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AProject.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +33,13 @@ namespace AProject
                     b.Size = new Size(Width * 180 / 1152, Height * 32 / 648);
                 }
             }
+        }
+
+        private void btnEditProd_Click(object sender, EventArgs e)
+        {
+            FrmProductList f= new FrmProductList();
+            f.MdiParent = this;
+            f.Show();
         }
     }
 }
