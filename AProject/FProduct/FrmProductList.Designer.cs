@@ -37,8 +37,8 @@
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.txtKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +104,15 @@
             this.btnEdit.Text = "修改";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(74, 28);
+            this.btnRefresh.Text = "重整";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -121,7 +130,6 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 33);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -136,15 +144,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 417);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(74, 28);
-            this.btnRefresh.Text = "重整";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // FrmProductList
             // 

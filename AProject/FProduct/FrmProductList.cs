@@ -27,7 +27,8 @@ namespace AProject.Views
         private void displayBySql(string sql)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
+            //con.ConnectionString = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
+            con.ConnectionString = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Robin;Encrypt=False";
             con.Open();
 
             _adapter = new SqlDataAdapter(sql, con);
@@ -63,6 +64,7 @@ namespace AProject.Views
                 dr["fProdName"]=f.product.fProdName;
                 dr["fProdDescription"]=f.product.fProdDescription;
                 dr["fProdPrice"]=f.product.fProdPrice;
+                dr["fProdStock"]=f.product.fProdStock;
                 dr["fProdImage"]=f.product.fProdImage;
                 dt.Rows.Add(dr);
             }
@@ -72,13 +74,14 @@ namespace AProject.Views
             DataTable dt = dataGridView1.DataSource as DataTable;
             DataRow dr = dt.Rows[_position];
             CProd m = new CProd();
-            m.fProdPrice = (decimal)dr["fProdPrice"];
             m.fProdName = dr["fProdName"].ToString();
             m.fProdDescription=dr["fProdDescription"].ToString();
+            m.fProdPrice = (decimal)dr["fProdPrice"];
+            m.fProdStock = (int)dr["fProdStock"];
             if (dr["fProdImage"] != DBNull.Value)
                 m.fProdImage = (byte[])dr["fProdImage"];
-            //if (dr["fProdId"] != DBNull.Value)
-            //    m.fProdId = (int)dr["fProdId"];
+            //if (dr["fProdInt"] != DBNull.Value)
+            //    m.fProdInt = (int)dr["fProdInt"];
 
             FrmProductEditor f= new FrmProductEditor();
             f.title = " 修改商品";
@@ -89,6 +92,7 @@ namespace AProject.Views
                 dr["fProdName"] = f.product.fProdName;
                 dr["fProdDescription"] = f.product.fProdDescription;
                 dr["fProdPrice"] = f.product.fProdPrice;
+                dr["fProdStock"] = f.product.fProdStock;
                 dr["fProdImage"] = f.product.fProdImage;
             }
         }
@@ -127,16 +131,21 @@ namespace AProject.Views
         private void resetGridStyle()
         {
             dataGridView1.Columns[0].HeaderText = "編號";
-            dataGridView1.Columns[1].HeaderText = "架上數量";
+            dataGridView1.Columns[1].HeaderText = "商品名稱";
             dataGridView1.Columns[2].HeaderText = "商品描述";
             dataGridView1.Columns[3].HeaderText = "商品庫存";
             dataGridView1.Columns[4].HeaderText = "商品售價";
             dataGridView1.Columns[5].HeaderText = "商品照片";
             dataGridView1.Columns[0].Width = 40;
+            dataGridView1.Columns[1].Width = 100;
+            dataGridView1.Columns[3].Width = 80;
+            dataGridView1.Columns[4].Width = 80;
+            dataGridView1.Columns[5].Width = 80;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            _adapter.Update(dataGridView1.DataSource as DataTable);
             string sql = "SELECT fProductId,fProdName,fProdDescription,fProdStock,fProdPrice,fProdImage \r\nFROM tProduct";
             sql += " WHERE fProdName LIKE @K_KEYWORD";
 

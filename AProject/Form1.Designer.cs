@@ -150,6 +150,7 @@
             this.btnEditProdStock.Name = "btnEditProdStock";
             this.btnEditProdStock.Size = new System.Drawing.Size(270, 38);
             this.btnEditProdStock.Text = "編輯庫存";
+            this.btnEditProdStock.Visible = false;
             // 
             // toolStripButton8
             // 
@@ -169,13 +170,13 @@
             // 收驚管理ToolStripMenuItem
             // 
             this.收驚管理ToolStripMenuItem.Name = "收驚管理ToolStripMenuItem";
-            this.收驚管理ToolStripMenuItem.Size = new System.Drawing.Size(164, 38);
+            this.收驚管理ToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
             this.收驚管理ToolStripMenuItem.Text = "收驚";
             // 
             // 點燈ToolStripMenuItem
             // 
             this.點燈ToolStripMenuItem.Name = "點燈ToolStripMenuItem";
-            this.點燈ToolStripMenuItem.Size = new System.Drawing.Size(164, 38);
+            this.點燈ToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
             this.點燈ToolStripMenuItem.Text = "點燈";
             // 
             // toolStripButton9

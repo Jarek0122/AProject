@@ -32,13 +32,15 @@ namespace AProject.FProduct
                     _product = new CProd();
                 _product.fProdName=fbProdName.Text;
                 _product.fProdDescription=fbProdDescription.Text;
-                _product.fProdPrice=Convert.ToDecimal(fbProdPrice.Text);
+                _product.fProdPrice = Convert.ToDecimal(fbProdPrice.Text);
+                _product.fProdStock = Convert.ToInt32(fbProdStock.Text);
                 return _product; }
             set {
                 _product = value;
                 fbProdName.Text = _product.fProdName.ToString();
                 fbProdDescription.Text = _product.fProdDescription.ToString();
                 fbProdPrice.Text=_product.fProdPrice.ToString();
+                fbProdStock.Text = _product.fProdStock.ToString();
                 if (_product.fProdImage != null)
                 {
                     Stream streamImage=new MemoryStream(_product.fProdImage);
@@ -77,8 +79,12 @@ namespace AProject.FProduct
                 errMsg += "\r\n價格必須輸入";
             if (string.IsNullOrEmpty(fbProdDescription.Text))
                 errMsg += "\r\n描述必須輸入";
+            if (string.IsNullOrEmpty(fbProdStock.Text))
+                errMsg += "\r\n庫存必須輸入";
             if (!CNumberUtility.isNumber(fbProdPrice.Text))
-                errMsg += "\r\n價格必須輸入整數";
+                errMsg += "\r\n價格必須輸入數字";
+            if (!CNumberUtility.isNumber(fbProdStock.Text))
+                errMsg += "\r\n庫存必須輸入數字";
             if (!string.IsNullOrEmpty(errMsg))
             {
                 MessageBox.Show(errMsg);
