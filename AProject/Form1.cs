@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AProject.FUser;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +33,18 @@ namespace AProject
                     b.Size = new Size(Width * 180 / 1152, Height * 32 / 648);
                 }
             }
+        }
+
+        private void 會員管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUser u = new FrmUser();
+            u.MdiParent = this;
+            u.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            (new FrmLogin()).ShowDialog();
         }
     }
 }

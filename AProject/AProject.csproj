@@ -46,16 +46,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComponetUser\DateTimeUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComponetUser\DateTimeUser.Designer.cs">
+      <DependentUpon>DateTimeUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComponetUser\DropDownBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComponetUser\DropDownBox.Designer.cs">
+      <DependentUpon>DropDownBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComponetUser\FieldBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComponetUser\FieldBox.Designer.cs">
+      <DependentUpon>FieldBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CUser\CSQL.cs" />
+    <Compile Include="CUser\CUsers.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FUser\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FUser\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FUser\FrmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FUser\FrmUser.Designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FUser\FrmUserEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FUser\FrmUserEditor.Designer.cs">
+      <DependentUpon>FrmUserEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ComponetUser\DateTimeUser.resx">
+      <DependentUpon>DateTimeUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComponetUser\DropDownBox.resx">
+      <DependentUpon>DropDownBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComponetUser\FieldBox.resx">
+      <DependentUpon>FieldBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FUser\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FUser\FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FUser\FrmUserEditor.resx">
+      <DependentUpon>FrmUserEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,5 +135,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
