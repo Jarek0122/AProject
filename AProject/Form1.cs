@@ -1,4 +1,5 @@
 ﻿using AProject.FUser;
+using AProject.FOrder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +46,13 @@ namespace AProject
         private void Form1_Load(object sender, EventArgs e)
         {
             (new FrmLogin()).ShowDialog();
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            FrmOrderManager f = new FrmOrderManager();
+            f.MdiParent = this;
+            f.Show();
         }
     }
 }

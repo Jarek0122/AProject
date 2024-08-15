@@ -94,19 +94,19 @@
             // 活動訂單ToolStripMenuItem
             // 
             this.活動訂單ToolStripMenuItem.Name = "活動訂單ToolStripMenuItem";
-            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.活動訂單ToolStripMenuItem.Text = "活動訂單";
             // 
             // 活動上架ToolStripMenuItem
             // 
             this.活動上架ToolStripMenuItem.Name = "活動上架ToolStripMenuItem";
-            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.活動上架ToolStripMenuItem.Text = "活動上架";
             // 
             // 活動廣告ToolStripMenuItem
             // 
             this.活動廣告ToolStripMenuItem.Name = "活動廣告ToolStripMenuItem";
-            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.活動廣告ToolStripMenuItem.Text = "活動廣告";
             // 
             // toolStripButton6
@@ -120,6 +120,7 @@
             this.toolStripButton6.Size = new System.Drawing.Size(180, 35);
             this.toolStripButton6.Text = "訂單管理";
             this.toolStripButton6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // toolStripButton7
             // 
@@ -151,13 +152,13 @@
             // 收驚管理ToolStripMenuItem
             // 
             this.收驚管理ToolStripMenuItem.Name = "收驚管理ToolStripMenuItem";
-            this.收驚管理ToolStripMenuItem.Size = new System.Drawing.Size(138, 30);
+            this.收驚管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.收驚管理ToolStripMenuItem.Text = "收驚";
             // 
             // 點燈ToolStripMenuItem
             // 
             this.點燈ToolStripMenuItem.Name = "點燈ToolStripMenuItem";
-            this.點燈ToolStripMenuItem.Size = new System.Drawing.Size(138, 30);
+            this.點燈ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.點燈ToolStripMenuItem.Text = "點燈";
             // 
             // toolStripButton9
