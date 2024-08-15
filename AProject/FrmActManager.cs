@@ -28,6 +28,7 @@ namespace AProject.View
         private SqlDataAdapter _adapterImg;
         private SqlCommandBuilder _builderImg;
         private CAct _Act;
+        private string sqlDisplay = "";
         public FrmActManager()
         {
             InitializeComponent();
@@ -57,8 +58,7 @@ namespace AProject.View
             sqlActInfo += "[fRegFee],";
             sqlActInfo += "[fMaxNumber],";
             sqlActInfo += "[fActUpdateDate],";
-            sqlActInfo += "[fRemovalMark],";
-            sqlActInfo += "[fActClosed]";
+            sqlActInfo += "[fRemovalMark]";
             sqlActInfo += ") values (";
             sqlActInfo += "@KfCompanyId,";
             sqlActInfo += "@KfActName,";
@@ -69,7 +69,6 @@ namespace AProject.View
             sqlActInfo += "@KfMaxNumber,";
             sqlActInfo += "@KfActUpdateDate,";
             sqlActInfo += "@KfRemovalMark";
-            sqlActInfo += "@KfActClosed";
             sqlActInfo += " ) ";
 
             SqlConnection con = new SqlConnection(SqlconnectS);
@@ -89,7 +88,6 @@ namespace AProject.View
                 cmdCreatAct.Parameters.Add(new SqlParameter("KfMaxNumber", (object)a.fActNMax));
                 cmdCreatAct.Parameters.Add(new SqlParameter("KfActUpdateDate", (object)a.fEditorDay));
                 cmdCreatAct.Parameters.Add(new SqlParameter("KfRemovalMark", (object)a.fActStatus));
-                cmdCreatAct.Parameters.Add(new SqlParameter("KfActClosed", (object)a.fActClosed));
                 cmdCreatAct.ExecuteNonQuery();
 
 
@@ -174,6 +172,7 @@ namespace AProject.View
             DataSet ds = new DataSet();
 
             _adapterInfo = new SqlDataAdapter("select * from tActInformation", con);
+//keyword           // _adapterInfo.SelectCommand.Parameters.Add(new SqlParameter("Keyword"," Where ");
             _builderInfo = new SqlCommandBuilder(_adapterInfo);
             ds.Tables.Add("tActInformation");
             _adapterInfo.Fill(ds.Tables["tActInformation"]);
@@ -279,8 +278,11 @@ namespace AProject.View
             sqlActInfo += "@KfActUpdateDate,";
             sqlActInfo += "[fRemovalMark] = ";
             sqlActInfo += "@KfRemovalMark,";
-            sqlActInfo += "[fActClosed] = ";
-            sqlActInfo += "@KfActClosed";
+            if (a.fActClosed != null)
+            {
+                sqlActInfo += "[fActClosed] = ";
+                sqlActInfo += "@KfActClosed";
+            }
             sqlActInfo += " WHERE [fActId] = ";
             sqlActInfo += "@KfActId; ";
 
@@ -480,6 +482,11 @@ namespace AProject.View
                 MessageBox.Show("刪除失敗，請確認活動是否使用中");
                 return;
             }            
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

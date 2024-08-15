@@ -183,12 +183,12 @@ namespace AProject.View
                     _RegEndD.Add("");
                 }
             }
-            for (int i = 0; BatchValue.Value < _ActStartD.Count  ; i++)
+            while (BatchValue.Value < _ActStartD.Count)
             {
-                _ActStartD.RemoveAt(_ActStartD.Count - 1 - i);
-                _ActEndD.RemoveAt(_ActEndD.Count - 1 - i);
-                _RegStartD.RemoveAt(_RegStartD.Count - 1 - i);
-                _RegEndD.RemoveAt(_RegEndD.Count - 1 - i);
+                _ActStartD.RemoveAt(_ActStartD.Count - 1 );
+                _ActEndD.RemoveAt(_ActEndD.Count - 1);
+                _RegStartD.RemoveAt(_RegStartD.Count - 1);
+                _RegEndD.RemoveAt(_RegEndD.Count - 1);
             }
         }
 

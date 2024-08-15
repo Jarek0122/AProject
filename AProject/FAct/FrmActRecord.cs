@@ -20,57 +20,79 @@ namespace AProject.View
 
         //private string SqlconnectS = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;Persist Security Info=True;User ID=Lucy";
         private string SqlconnectS = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
-        SqlDataAdapter _adapterAct;
-        SqlCommandBuilder _builderAct;
-        SqlDataAdapter _adapterRecord;
-        SqlCommandBuilder _builderRecord;
+        private SqlDataAdapter _adapterAct;
+        private SqlCommandBuilder _builderAct;
+        private SqlDataAdapter _adapterRecord;
+        private SqlCommandBuilder _builderRecord;
+        private string _clickAct ;
+        private string _ActData ;
+        private DataSet ds;
         private void FrmActRecord_Load(object sender, EventArgs e)
         {
-            string sqlAct = "Select * from tActInformation a left join tActDetail b on a.fActId = b.fActId";
-            string sqlRecord = "Select * from tActDetail a left join tEventReg b on a.fActDetailID = b.fActDetailID";
+            resetDisplay();
+
+        }
+
+        private void resetDisplay()
+        {
             SqlConnection con = new SqlConnection(SqlconnectS);
             con.Open();
-            _adapterAct = new SqlDataAdapter(sqlAct,con);
-            _adapterRecord = new SqlDataAdapter(sqlRecord, con);
+            string sqlAct = "Select * from tActInformation a left join tActDetail b on a.fActId = b.fActId";
+            _adapterAct = new SqlDataAdapter(sqlAct, con);
             _builderAct = new SqlCommandBuilder(_adapterAct);
-            _builderRecord = new SqlCommandBuilder(_adapterRecord);
-            DataSet ds = new DataSet();
+            ds = new DataSet();
             DataTable dt = ds.Tables.Add("活動總表");
-            DataTable dtr = ds.Tables.Add("報名清單");
             _adapterAct.Fill(dt);
+
+            string sqlRecord = "Select * from tRegDetails a left join tEventReg b on a.fRegID = b.fRegID";
+            _adapterRecord = new SqlDataAdapter(sqlRecord, con);
+            _builderRecord = new SqlCommandBuilder(_adapterRecord);
+            DataTable dtr = ds.Tables.Add("報名清單");
             _adapterRecord.Fill(dtr);
+            
             con.Close();
 
+            ds.Tables.Add("單一活動查詢結果");
             ds.Tables["活動總表"].Columns.Add("報名人數");
             ds.Tables["活動總表"].Columns.Add("公開狀態");
-            
+
             foreach (DataRow dr in dt.Rows)
             {
                 int Regcount = 0;
                 foreach (DataRow row in dtr.Rows)
-                {                    
+                {
                     if (dr["fActDetailID"] == row["fActDetailID"]) { Regcount++; }
+                    row["fPaymentStatus"] = row["fPaymentStatus"] == DBNull.Value ? false : (bool)row["fPaymentStatus"];
+                    //&& row["fPaymentStatus"] == DBNull.Value ? false : (bool)row["fPaymentStatus"]
                 }
-                dr["報名人數"]= Regcount.ToString() + " / " + dr["fMaxNumber"].ToString();
+                dr["報名人數"] = Regcount.ToString() + " / " + dr["fMaxNumber"].ToString();
                 dr["fActUpdateDate"] = Convert.ToDateTime(dr["fActUpdateDate"]).ToString("yyyy/MM/dd");
-                dr["fActClosed"] = dr["fActClosed"] == DBNull.Value?"": Convert.ToDateTime(dr["fActClosed"]).ToString("yyyy/MM/dd");
+
+                dr["fActClosed"] = (dr["fActClosed"] == DBNull.Value) ? "" : Convert.ToDateTime(dr["fActClosed"]).ToString("yyyy/MM/dd");
                 dr["公開狀態"] = (bool)dr["fRemovalMark"] ? "公開" : "下架";
-                dr["fRegFee"] = Convert.ToInt32(dr["fRegFee"]).ToString();                
+                dr["fRegFee"] = Convert.ToInt32(dr["fRegFee"]).ToString();
             }
-            dataGridView1.DataSource = dt;
             dt.Columns["fActUpdateDate"].SetOrdinal(dt.Columns.Count - 1);
             dt.Columns["fActClosed"].SetOrdinal(dt.Columns.Count - 1);
 
             dt.Columns["fCompanyId"].ColumnName = "廠商編號";
             dt.Columns["fActName"].ColumnName = "活動名稱";
             dt.Columns["fActLocation"].ColumnName = "地點";
-            dt.Columns["fActUpdateDate"].ColumnName ="更新日期";
+            dt.Columns["fActUpdateDate"].ColumnName = "更新日期";
             dt.Columns["fActClosed"].ColumnName = "結案日期";
             dt.Columns["fRegFee"].ColumnName = "報名費用";
             dt.Columns["fStartDate"].ColumnName = "開放報名";
             dt.Columns["fEndDate"].ColumnName = "截止報名";
             dt.Columns["fRegStartDate"].ColumnName = "開始日期";
-            dt.Columns["fRegDeadline"].ColumnName = "結束日期";
+            dt.Columns["fRegDeadline"].ColumnName = "結束日期";//以上是整理DataTable dt
+
+            dataGridView1.DataSource = dt;
+            int countAct = 0;
+            foreach (DataGridViewRow c in dataGridView1.Rows)
+            {
+                countAct++;
+                c.HeaderCell.Value = countAct.ToString();
+            }
             dataGridView1.Columns["fActId"].Visible = false;
             dataGridView1.Columns["fImgId"].Visible = false;
             dataGridView1.Columns["fMaxNumber"].Visible = false;
@@ -80,7 +102,74 @@ namespace AProject.View
             dataGridView1.Columns["fActDetailId"].Visible = false;
             dataGridView1.Columns["fActId1"].Visible = false;
             dataGridView1.Columns["fRemainingPlaces"].Visible = false;
-            
+            dataGridView1.Columns["廠商編號"].Width = 80;
+            dataGridView1.Columns["活動名稱"].Width = 80;
+            dataGridView1.Columns["地點"].Width = 80;
+            dataGridView1.Columns["報名費用"].Width = 80;
+            dataGridView1.Columns["開放報名"].Width = 80;
+            dataGridView1.Columns["截止報名"].Width = 80;
+            dataGridView1.Columns["開始日期"].Width = 80;
+            dataGridView1.Columns["結束日期"].Width = 80;
+            dataGridView1.Columns["報名人數"].Width = 80;
+            dataGridView1.Columns["公開狀態"].Width = 80;
+            dataGridView1.Columns["更新日期"].Width = 80;
+            dataGridView1.Columns["結案日期"].Width = 80;
+            dataGridView1.RowHeadersVisible = true;
+            dataGridView1.RowHeadersWidth = 8;
+
+            dataGridView2.DataSource = dtr;
+            dtr.Columns["fUserId"].ColumnName = "填表會員編號";
+            dtr.Columns["填表會員編號"].SetOrdinal(0);
+            dtr.Columns["fRegName"].ColumnName = "參加者姓名";
+            dtr.Columns["fRegTel"].ColumnName = "電話";
+            dtr.Columns["fRegEmail"].ColumnName = "信箱";
+            dtr.Columns["fRecipientAddress"].ColumnName = "地址";
+            dtr.Columns["fRegStatus"].ColumnName = "報名狀態";
+            dtr.Columns["fPaymentStatus"].ColumnName = "付款狀態";
+            dtr.Columns["fRegDate"].ColumnName = "報名日期";
+            dataGridView2.Columns["fRegDetailsId"].Visible = false;
+            dataGridView2.Columns["fRegID"].Visible = false;
+            dataGridView2.Columns["fRegID1"].Visible = false;
+            dataGridView2.Columns["fActDetailID"].Visible = false;
+            dataGridView2.Columns["fActPayment"].Visible = false;
+            dataGridView2.Columns["fPaymentInfo"].Visible = false;
+
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //string sortClick = dataGridView1.Columns[e.ColumnIndex].Name ;
+            //sortClick += dataGridView1.SortOrder.ToString().Equals("Ascending")? " ASCE": " DESC";
+            ////MessageBox.Show(sortClick);
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow dr = dataGridView1.Rows[e.RowIndex];
+            _clickAct = (dr.Cells["活動名稱"].Value.ToString());
+            MessageBox.Show(_clickAct);
+
+            ds.Tables["單一活動查詢結果"].Clear();
+            foreach (DataRow drf in ds.Tables["報名清單"].Rows)
+            {
+                if (drf["fActDetailId"].ToString() == dr.Cells["fActDetailId"].Value.ToString())
+                    ds.Tables["單一活動查詢結果"].ImportRow(drf);
+            }
+            _ActData = "    開始日期 : " + dr.Cells["開始日期"].Value.ToString();
+            _ActData += "    結束日期 : " + dr.Cells["結束日期"].Value.ToString();
+            _ActData += "    報名人數 : " + dr.Cells["報名人數"].Value.ToString();
+            dataGridView2 .DataSource = ds.Tables["單一活動查詢結果"];
+        }
+
+        private void dataGridView2_DataSourceChanged(object sender, EventArgs e)
+        {
+            toolStripLabel1.Text = "目前顯示 " + (string.IsNullOrEmpty(_clickAct) ? "全部" : _clickAct) + " 報名人員資料" + _ActData;
+            _clickAct = "";
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            resetDisplay();
         }
     }
 }

@@ -36,8 +36,8 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.ActKeyword = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,6 +106,7 @@
             this.toolStripButton4.Text = "查詢";
             this.toolStripButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripButton4.ToolTipText = "修改現存活動資料";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // ActKeyword
             // 
@@ -127,15 +128,6 @@
             this.toolStripButton2.ToolTipText = "修改現存活動資料";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 41);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1053, 504);
-            this.flowLayoutPanel1.TabIndex = 2;
-            // 
             // toolStripButton5
             // 
             this.toolStripButton5.AutoSize = false;
@@ -147,6 +139,15 @@
             this.toolStripButton5.Text = "刪除";
             this.toolStripButton5.ToolTipText = "修改現存活動資料";
             this.toolStripButton5.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 41);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1053, 504);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // FrmActManager
             // 
