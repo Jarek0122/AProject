@@ -61,9 +61,7 @@ namespace AProject.View
                 int Regcount = 0;
                 foreach (DataRow row in dtr.Rows)
                 {
-                    if (dr["fActDetailID"] == row["fActDetailID"]) { Regcount++; }
-                    row["fPaymentStatus"] = row["fPaymentStatus"] == DBNull.Value ? false : (bool)row["fPaymentStatus"];
-                    //&& row["fPaymentStatus"] == DBNull.Value ? false : (bool)row["fPaymentStatus"]
+                    if (dr["fActDetailID"].Equals(row["fActDetailID"]) && (bool)row["fPaymentStatus"] == true) { Regcount++; }
                 }
                 dr["報名人數"] = Regcount.ToString() + " / " + dr["fMaxNumber"].ToString();
                 dr["fActUpdateDate"] = Convert.ToDateTime(dr["fActUpdateDate"]).ToString("yyyy/MM/dd");
@@ -117,16 +115,16 @@ namespace AProject.View
             dataGridView1.RowHeadersVisible = true;
             dataGridView1.RowHeadersWidth = 8;
 
-            dataGridView2.DataSource = dtr;
-            dtr.Columns["fUserId"].ColumnName = "填表會員編號";
-            dtr.Columns["填表會員編號"].SetOrdinal(0);
-            dtr.Columns["fRegName"].ColumnName = "參加者姓名";
-            dtr.Columns["fRegTel"].ColumnName = "電話";
-            dtr.Columns["fRegEmail"].ColumnName = "信箱";
-            dtr.Columns["fRecipientAddress"].ColumnName = "地址";
-            dtr.Columns["fRegStatus"].ColumnName = "報名狀態";
-            dtr.Columns["fPaymentStatus"].ColumnName = "付款狀態";
-            dtr.Columns["fRegDate"].ColumnName = "報名日期";
+            dataGridView2.DataSource = ds.Tables["報名清單"];
+            ds.Tables["報名清單"].Columns["fUserId"].ColumnName = "填表會員編號";
+            ds.Tables["報名清單"].Columns["填表會員編號"].SetOrdinal(0);
+            ds.Tables["報名清單"].Columns["fRegName"].ColumnName = "參加者姓名";
+            ds.Tables["報名清單"].Columns["fRegTel"].ColumnName = "電話";
+            ds.Tables["報名清單"].Columns["fRegEmail"].ColumnName = "信箱";
+            ds.Tables["報名清單"].Columns["fRecipientAddress"].ColumnName = "地址";
+            ds.Tables["報名清單"].Columns["fRegStatus"].ColumnName = "報名狀態";
+            //ds.Tables["報名清單"].Columns["fPaymentStatus"].ColumnName = "付款狀態";
+            ds.Tables["報名清單"].Columns["fRegDate"].ColumnName = "報名日期";
             dataGridView2.Columns["fRegDetailsId"].Visible = false;
             dataGridView2.Columns["fRegID"].Visible = false;
             dataGridView2.Columns["fRegID1"].Visible = false;
@@ -149,16 +147,18 @@ namespace AProject.View
             _clickAct = (dr.Cells["活動名稱"].Value.ToString());
             MessageBox.Show(_clickAct);
 
-            ds.Tables["單一活動查詢結果"].Clear();
+            
+            DataTable dt = ds.Tables["報名清單"].Clone();
             foreach (DataRow drf in ds.Tables["報名清單"].Rows)
             {
-                if (drf["fActDetailId"].ToString() == dr.Cells["fActDetailId"].Value.ToString())
-                    ds.Tables["單一活動查詢結果"].ImportRow(drf);
+                if ((drf["fActDetailId"]).ToString().Equals(dr.Cells["fActDetailId"].Value.ToString()))
+                   dt.ImportRow(drf);
             }
+            dataGridView2.DataSource = dt;
+
             _ActData = "    開始日期 : " + dr.Cells["開始日期"].Value.ToString();
             _ActData += "    結束日期 : " + dr.Cells["結束日期"].Value.ToString();
             _ActData += "    報名人數 : " + dr.Cells["報名人數"].Value.ToString();
-            dataGridView2 .DataSource = ds.Tables["單一活動查詢結果"];
         }
 
         private void dataGridView2_DataSourceChanged(object sender, EventArgs e)
