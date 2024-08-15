@@ -18,8 +18,8 @@ namespace AProject.View
             InitializeComponent();
         }
 
-        //private string SqlconnectS = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;Persist Security Info=True;User ID=Lucy";
-        private string SqlconnectS = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
+        private string SqlconnectS = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;Persist Security Info=True;User ID=Lucy";
+        //private string SqlconnectS = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
         private SqlDataAdapter _adapterAct;
         private SqlCommandBuilder _builderAct;
         private SqlDataAdapter _adapterRecord;

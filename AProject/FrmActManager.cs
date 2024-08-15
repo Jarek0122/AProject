@@ -16,8 +16,8 @@ namespace AProject.View
     public partial class FrmActManager : Form
     {
         public static int userId = 11;
-        //private string SqlconnectS = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;Persist Security Info=True;User ID=Lucy";
-        private string SqlconnectS = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
+        private string SqlconnectS = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;Persist Security Info=True;User ID=Lucy";
+        //private string SqlconnectS = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
         private int _position;
         private SqlDataAdapter _adapterAllAct;
         private SqlCommandBuilder _builderAllAct;
