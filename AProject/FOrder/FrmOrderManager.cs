@@ -70,7 +70,8 @@ namespace AProject.FOrder
         private void displayBySql(string sql, DataGridView dataGridView)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
+            //con.ConnectionString = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
+            con.ConnectionString = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Esther;Encrypt=False";
             con.Open();
 
             _adapter = new SqlDataAdapter(sql, con);
@@ -134,7 +135,8 @@ namespace AProject.FOrder
                 DataGridViewRow selectedRow = dataGridView1.Rows[_position];
                 int orderId = Convert.ToInt32(selectedRow.Cells["fOrderId"].Value);
 
-                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Esther;Encrypt=False"))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("DELETE FROM tOrder WHERE fOrderId = @fOrderId", con);
@@ -186,36 +188,57 @@ namespace AProject.FOrder
                 FrmOrderEditor f = new FrmOrderEditor();
                 f.order = new COrder
                 {
-                    fUserId = Convert.ToInt32(selectedRow.Cells["fUserId"].Value),
-                    fOrderDate = selectedRow.Cells["fOrderDate"].Value.ToString(),
-                    fOrderStatus = selectedRow.Cells["fOrderStatus"].Value.ToString(),
-                    fPromotionId = Convert.ToInt32(selectedRow.Cells["fPromotionId"].Value),
-                    fPaymentStatus = Convert.ToBoolean(selectedRow.Cells["fPaymentStatus"].Value),
-                    fShippingStatus = Convert.ToBoolean(selectedRow.Cells["fShippingStatus"].Value),
-                    fServiceStatus = Convert.ToBoolean(selectedRow.Cells["fServiceStatus"].Value),
-                    fPaymentInfo = selectedRow.Cells["fPaymentInfo"].Value.ToString(),
-                    fShippingInfo = selectedRow.Cells["fShippingInfo"].Value.ToString(),
-                    fInvoiceInfo = selectedRow.Cells["fInvoiceInfo"].Value.ToString(),
-                    fRecepientName = selectedRow.Cells["fRecepientName"].Value.ToString(),
-                    fRecepientAddress = selectedRow.Cells["fRecepientAddress"].Value.ToString(),
-                    fRecepientPhone = selectedRow.Cells["fRecepientPhone"].Value.ToString(),
-                    fRecepientEmail = selectedRow.Cells["fRecepientEmail"].Value.ToString(),
-                    fOrderRemarks = selectedRow.Cells["fOrderRemarks"].Value.ToString(),
-                    fReturnInfo = selectedRow.Cells["fReturnInfo"].Value.ToString()
+                    //fUserId = Convert.ToInt32(selectedRow.Cells["fUserId"].Value),
+                    //fOrderDate = selectedRow.Cells["fOrderDate"].Value.ToString(),
+                    //fOrderStatus = selectedRow.Cells["fOrderStatus"].Value.ToString(),
+                    //fPromotionId = Convert.ToInt32(selectedRow.Cells["fPromotionId"].Value),
+                    //fPaymentStatus = Convert.ToBoolean(selectedRow.Cells["fPaymentStatus"].Value),
+                    //fShippingStatus = Convert.ToBoolean(selectedRow.Cells["fShippingStatus"].Value),
+                    //fServiceStatus = Convert.ToBoolean(selectedRow.Cells["fServiceStatus"].Value),
+                    //fPaymentInfo = selectedRow.Cells["fPaymentInfo"].Value.ToString(),
+                    //fShippingInfo = selectedRow.Cells["fShippingInfo"].Value.ToString(),
+                    //fInvoiceInfo = selectedRow.Cells["fInvoiceInfo"].Value.ToString(),
+                    //fRecepientName = selectedRow.Cells["fRecepientName"].Value.ToString(),
+                    //fRecepientAddress = selectedRow.Cells["fRecepientAddress"].Value.ToString(),
+                    //fRecepientPhone = selectedRow.Cells["fRecepientPhone"].Value.ToString(),
+                    //fRecepientEmail = selectedRow.Cells["fRecepientEmail"].Value.ToString(),
+                    //fOrderRemarks = selectedRow.Cells["fOrderRemarks"].Value.ToString(),
+                    //fReturnInfo = selectedRow.Cells["fReturnInfo"].Value.ToString()
+                    fUserId = selectedRow.Cells["fUserId"].Value != DBNull.Value ? Convert.ToInt32(selectedRow.Cells["fUserId"].Value) : 0,
+                    fOrderDate = selectedRow.Cells["fOrderDate"].Value != DBNull.Value ? selectedRow.Cells["fOrderDate"].Value.ToString() : string.Empty,
+                    fOrderStatus = selectedRow.Cells["fOrderStatus"].Value != DBNull.Value ? selectedRow.Cells["fOrderStatus"].Value.ToString() : string.Empty,
+                    fPromotionId = selectedRow.Cells["fPromotionId"].Value != DBNull.Value ? Convert.ToInt32(selectedRow.Cells["fPromotionId"].Value) : 0,
+                    fPaymentStatus = selectedRow.Cells["fPaymentStatus"].Value != DBNull.Value ? Convert.ToBoolean(selectedRow.Cells["fPaymentStatus"].Value) : false,
+                    fShippingStatus = selectedRow.Cells["fShippingStatus"].Value != DBNull.Value ? Convert.ToBoolean(selectedRow.Cells["fShippingStatus"].Value) : false,
+                    fServiceStatus = selectedRow.Cells["fServiceStatus"].Value != DBNull.Value ? Convert.ToBoolean(selectedRow.Cells["fServiceStatus"].Value) : false,
+                    fPaymentInfo = selectedRow.Cells["fPaymentInfo"].Value != DBNull.Value ? selectedRow.Cells["fPaymentInfo"].Value.ToString() : string.Empty,
+                    fShippingInfo = selectedRow.Cells["fShippingInfo"].Value != DBNull.Value ? selectedRow.Cells["fShippingInfo"].Value.ToString() : string.Empty,
+                    fInvoiceInfo = selectedRow.Cells["fInvoiceInfo"].Value != DBNull.Value ? selectedRow.Cells["fInvoiceInfo"].Value.ToString() : string.Empty,
+                    fRecepientName = selectedRow.Cells["fRecepientName"].Value != DBNull.Value ? selectedRow.Cells["fRecepientName"].Value.ToString() : string.Empty,
+                    fRecepientAddress = selectedRow.Cells["fRecepientAddress"].Value != DBNull.Value ? selectedRow.Cells["fRecepientAddress"].Value.ToString() : string.Empty,
+                    fRecepientPhone = selectedRow.Cells["fRecepientPhone"].Value != DBNull.Value ? selectedRow.Cells["fRecepientPhone"].Value.ToString() : string.Empty,
+                    fRecepientEmail = selectedRow.Cells["fRecepientEmail"].Value != DBNull.Value ? selectedRow.Cells["fRecepientEmail"].Value.ToString() : string.Empty,
+                    fOrderRemarks = selectedRow.Cells["fOrderRemarks"].Value != DBNull.Value ? selectedRow.Cells["fOrderRemarks"].Value.ToString() : string.Empty,
+                    fReturnInfo = selectedRow.Cells["fReturnInfo"].Value != DBNull.Value ? selectedRow.Cells["fReturnInfo"].Value.ToString() : string.Empty
                 };
+
 
                 f.orderdetail = new COrderDetail
                 {
-                    fProductId = Convert.ToInt32(selectedRow.Cells["fProductId"].Value),
-                    fQuantity = Convert.ToInt32(selectedRow.Cells["fQuantity"].Value),
-                    fPrice = Convert.ToDecimal(selectedRow.Cells["fPrice"].Value)
+                    //fProductId = Convert.ToInt32(selectedRow.Cells["fProductId"].Value),
+                    //fQuantity = Convert.ToInt32(selectedRow.Cells["fQuantity"].Value),
+                    //fPrice = Convert.ToDecimal(selectedRow.Cells["fPrice"].Value)
+                    fProductId = selectedRow.Cells["fProductId"].Value != DBNull.Value ? Convert.ToInt32(selectedRow.Cells["fProductId"].Value) : 0,
+                    fQuantity = selectedRow.Cells["fQuantity"].Value != DBNull.Value ? Convert.ToInt32(selectedRow.Cells["fQuantity"].Value) : 0,
+                    fPrice = selectedRow.Cells["fPrice"].Value != DBNull.Value ? Convert.ToDecimal(selectedRow.Cells["fPrice"].Value) : 0m
                 };
 
                 f.ShowDialog();
 
                 if (f.isOk == DialogResult.OK)
                 {
-                    using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                    //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                    using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Esther;Encrypt=False"))
                     {
                         con.Open();
                         SqlCommand cmdOrder = new SqlCommand(@"UPDATE tOrder SET 
@@ -321,7 +344,9 @@ namespace AProject.FOrder
                 //dr["fDonationDate"] = f.donation.fDonationDate;
                 //dr["fAmount"] = f.donation.fAmount;
                 //dt.Rows.Add(dr);
-                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+
+                //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Esther;Encrypt=False"))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("INSERT INTO tDonation (fUserId, fCompanyId, fDonationDate, fAmount) VALUES (@fUserId, @fCompanyId, @fDonationDate, @fAmount)", con);
@@ -347,8 +372,9 @@ namespace AProject.FOrder
             {
                 DataGridViewRow selectedRow = dataGridView2.Rows[_position];
                 int donationId = Convert.ToInt32(selectedRow.Cells["fDonationId"].Value);
-
-                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                
+                //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Esther;Encrypt=False"))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("DELETE FROM tDonation WHERE fDonationId = @fDonationId", con);
@@ -403,7 +429,8 @@ namespace AProject.FOrder
 
                 if (f.isOk == DialogResult.OK)
                 {
-                    using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                    //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                    using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Esther;Encrypt=False"))
                     {
                         con.Open();
                         SqlCommand cmd = new SqlCommand(@"UPDATE tDonation SET 
@@ -454,7 +481,8 @@ namespace AProject.FOrder
             f.ShowDialog();
             if (f.isOk == DialogResult.OK)
             {
-                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Esther;Encrypt=False"))
                 {
                     con.Open();
 
@@ -494,7 +522,8 @@ namespace AProject.FOrder
                 int orderdetailId = Convert.ToInt32(selectedRow.Cells["fOrderDetailId"].Value);
 
 
-                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Esther;Encrypt=False"))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("DELETE FROM tOrderDetail WHERE fOrderDetailId = @fOrderDetailId", con);
@@ -528,7 +557,8 @@ namespace AProject.FOrder
 
                 if (f.isOk == DialogResult.OK)
                 {
-                    using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                    //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                    using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Esther;Encrypt=False"))
                     {
                         con.Open();
                         // 更新 Order，如果有需要修改
@@ -637,21 +667,21 @@ namespace AProject.FOrder
             dataGridView1.Columns[10].Width = 100;
             dataGridView1.Columns[10].HeaderText = "服務狀態";
             dataGridView1.Columns[11].Width = 100;
-            dataGridView1.Columns[11].HeaderText = "付款資訊";
+            dataGridView1.Columns[11].HeaderText = "付款方式";
             dataGridView1.Columns[12].Width = 100;
-            dataGridView1.Columns[12].HeaderText = "發票資訊";
+            dataGridView1.Columns[12].HeaderText = "配送方式";
             dataGridView1.Columns[13].Width = 100;
-            dataGridView1.Columns[13].HeaderText = "收件人姓名";
+            dataGridView1.Columns[13].HeaderText = "發票資訊";
             dataGridView1.Columns[14].Width = 100;
-            dataGridView1.Columns[14].HeaderText = "收件人地址";
+            dataGridView1.Columns[14].HeaderText = "收件人姓名";
             dataGridView1.Columns[15].Width = 100;
-            dataGridView1.Columns[15].HeaderText = "收件人電話";
+            dataGridView1.Columns[15].HeaderText = "收件人地址";
             dataGridView1.Columns[16].Width = 100;
-            dataGridView1.Columns[16].HeaderText = "收件人信箱";
+            dataGridView1.Columns[16].HeaderText = "收件人電話";
             dataGridView1.Columns[17].Width = 100;
-            dataGridView1.Columns[17].HeaderText = "訂單備註";
+            dataGridView1.Columns[17].HeaderText = "收件人信箱";
             dataGridView1.Columns[18].Width = 100;
-            dataGridView1.Columns[18].HeaderText = "配送方式";
+            dataGridView1.Columns[18].HeaderText = "訂單備註";
             dataGridView1.Columns[19].Width = 100;
             dataGridView1.Columns[19].HeaderText = "退貨方式";
             foreach (DataGridViewRow r in dataGridView1.Rows)
@@ -713,5 +743,6 @@ namespace AProject.FOrder
             }
         }
 
+    
     }
 }

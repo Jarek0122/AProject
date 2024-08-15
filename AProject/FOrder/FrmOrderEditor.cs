@@ -56,9 +56,45 @@ namespace AProject.FOrder
                 _order.fOrderDate = fbOrderDate.fieldValue;
                 _order.fOrderStatus = Convert.ToString(cbOrderStatus.SelectedItem);
                 _order.fPromotionId = Convert.ToInt32(fbPromotionId.fieldValue);
-                _order.fPaymentStatus = Convert.ToBoolean(cbPaymentStatus.SelectedItem);
-                _order.fShippingStatus = Convert.ToBoolean(cbShippingStatus.SelectedItem);
-                _order.fServiceStatus = Convert.ToBoolean(cbServiceStatus.SelectedItem);
+                if (cbPaymentStatus.SelectedItem != null)
+                {
+                    string selectedStatus = cbPaymentStatus.SelectedItem.ToString();
+                    if (selectedStatus == "已付款")
+                    {
+                        _order.fPaymentStatus = true;
+                    }
+                    else if (selectedStatus == "未付款")
+                    {
+                        _order.fPaymentStatus = false;
+                    }
+                }
+                if (cbShippingStatus.SelectedItem != null)
+                {
+                    string selectedStatus = cbShippingStatus.SelectedItem.ToString();
+                    if (selectedStatus == "已送達")
+                    {
+                        _order.fShippingStatus = true;
+                    }
+                    else if (selectedStatus == "未配送")
+                    {
+                        _order.fShippingStatus = false;
+                    }
+                }
+                if (cbServiceStatus.SelectedItem != null)
+                {
+                    string selectedStatus = cbServiceStatus.SelectedItem.ToString();
+                    if (selectedStatus == "已完成")
+                    {
+                        _order.fServiceStatus = true;
+                    }
+                    else if (selectedStatus == "未完成")
+                    {
+                        _order.fServiceStatus = false;
+                    }
+                }
+                //_order.fPaymentStatus = Convert.ToBoolean(cbPaymentStatus.SelectedItem);
+                //_order.fShippingStatus = Convert.ToBoolean(cbShippingStatus.SelectedItem);
+                //_order.fServiceStatus = Convert.ToBoolean(cbServiceStatus.SelectedItem);
                 _order.fPaymentInfo = Convert.ToString(cbPaymentInfo.SelectedItem);
                 _order.fShippingInfo = Convert.ToString(cbShippingInfo.SelectedItem);
                 _order.fInvoiceInfo = fbInvoiceInfo.fieldValue;
@@ -80,6 +116,9 @@ namespace AProject.FOrder
                 cbPaymentStatus.SelectedItem = _order.fPaymentStatus.ToString();
                 cbShippingStatus.SelectedItem = _order.fShippingStatus.ToString();
                 cbServiceStatus.SelectedItem = _order.fServiceStatus.ToString();
+                //cbPaymentStatus.SelectedItem = _order.fPaymentStatus ? "已付款" : "未付款";
+                //cbShippingStatus.SelectedItem = _order.fShippingStatus ? "已送達" : "未配送";
+                //cbServiceStatus.SelectedItem = _order.fServiceStatus ? "已完成" : "未完成";
                 cbPaymentInfo.SelectedItem = _order.fPaymentInfo.ToString();
                 cbShippingInfo.SelectedItem = _order.fShippingInfo.ToString();
                 fbInvoiceInfo.fieldValue = _order.fInvoiceInfo.ToString();
@@ -91,6 +130,8 @@ namespace AProject.FOrder
                 cbReturnInfo.SelectedItem = _order.fReturnInfo.ToString();
             }
         }
+
+
 
         public COrderDetail orderdetail
         {
