@@ -150,6 +150,18 @@
     <Compile Include="FMatch\FrmStatusCheck.Designer.cs">
       <DependentUpon>FrmStatusCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="Component\ActBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\ActBox.Designer.cs">
+      <DependentUpon>ActBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\ActTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\ActTextBox.Designer.cs">
+      <DependentUpon>ActTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +197,13 @@
     </Compile>
     <Compile Include="FProduct\FrmProductEditor.Designer.cs">
       <DependentUpon>FrmProductEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CAct\CAct.cs" />
+    <Compile Include="FrmActManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActManager.Designer.cs">
+      <DependentUpon>FrmActManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -225,6 +244,24 @@
     <EmbeddedResource Include="FMatch\FrmStatusCheck.resx">
       <DependentUpon>FrmStatusCheck.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="FAct\FrmActEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAct\FrmActEditor.Designer.cs">
+      <DependentUpon>FrmActEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FAct\FrmActRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAct\FrmActRecord.Designer.cs">
+      <DependentUpon>FrmActRecord.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Component\ActBox.resx">
+      <DependentUpon>ActBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\ActTextBox.resx">
+      <DependentUpon>ActTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -244,6 +281,9 @@
     <EmbeddedResource Include="FProduct\FrmProductEditor.resx">
       <DependentUpon>FrmProductEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmActManager.resx">
+      <DependentUpon>FrmActManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -257,6 +297,12 @@
       <DependentUpon>FrmProductList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <EmbeddedResource Include="FAct\FrmActEditor.resx">
+      <DependentUpon>FrmActEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FAct\FrmActRecord.resx">
+      <DependentUpon>FrmActRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
