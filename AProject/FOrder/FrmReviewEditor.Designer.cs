@@ -82,7 +82,7 @@
             // 
             this.lblReview.AutoSize = true;
             this.lblReview.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblReview.Location = new System.Drawing.Point(12, 237);
+            this.lblReview.Location = new System.Drawing.Point(11, 237);
             this.lblReview.Name = "lblReview";
             this.lblReview.Size = new System.Drawing.Size(92, 25);
             this.lblReview.TabIndex = 9;

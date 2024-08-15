@@ -92,9 +92,9 @@ namespace AProject.FOrder
                 new SqlParameter("K_KEYWORD", "%" + (object)txtReview.Text + "%"));
             }
 
-            SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+            //SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
             DataSet ds = new DataSet();
-            adapter.Fill(ds);
+            _adapter.Fill(ds);
             con.Close();
             dataGridView.DataSource = ds.Tables[0];
         }
@@ -131,7 +131,7 @@ namespace AProject.FOrder
         {
             if (_position >= 0)
             {
-                DataGridViewRow selectedRow = dataGridView3.Rows[_position];
+                DataGridViewRow selectedRow = dataGridView1.Rows[_position];
                 int orderId = Convert.ToInt32(selectedRow.Cells["fOrderId"].Value);
 
                 using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
@@ -144,6 +144,7 @@ namespace AProject.FOrder
 
                 btnOrderRefresh_Click(sender, e);
             }
+
         }
 
         private void btnOrderUpdate_Click(object sender, EventArgs e)
@@ -179,7 +180,7 @@ namespace AProject.FOrder
             //od.fPrice = (decimal)dr["fPrice"];
             if (_position >= 0)
             {
-                DataGridViewRow selectedRow = dataGridView3.Rows[_position];
+                DataGridViewRow selectedRow = dataGridView1.Rows[_position];
                 int orderId = Convert.ToInt32(selectedRow.Cells["fOrderId"].Value);
 
                 FrmOrderEditor f = new FrmOrderEditor();
@@ -203,6 +204,13 @@ namespace AProject.FOrder
                     fReturnInfo = selectedRow.Cells["fReturnInfo"].Value.ToString()
                 };
 
+                f.orderdetail = new COrderDetail
+                {
+                    fProductId = Convert.ToInt32(selectedRow.Cells["fProductId"].Value),
+                    fQuantity = Convert.ToInt32(selectedRow.Cells["fQuantity"].Value),
+                    fPrice = Convert.ToDecimal(selectedRow.Cells["fPrice"].Value)
+                };
+
                 f.ShowDialog();
 
                 if (f.isOk == DialogResult.OK)
@@ -210,7 +218,7 @@ namespace AProject.FOrder
                     using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
                     {
                         con.Open();
-                        SqlCommand cmd = new SqlCommand(@"UPDATE tOrder SET 
+                        SqlCommand cmdOrder = new SqlCommand(@"UPDATE tOrder SET 
                                                     fUserId = @fUserId,
                                                     fOrderDate = @fOrderDate, 
                                                     fOrderStatus = @fOrderStatus, 
@@ -229,57 +237,69 @@ namespace AProject.FOrder
                                                     fReturnInfo = @fReturnInfo
                                                   WHERE fOrderId = @fOrderId", con);
 
-                        cmd.Parameters.AddWithValue("@fUserId", f.order.fUserId);
-                        cmd.Parameters.AddWithValue("@fOrderDate", f.order.fOrderDate);
-                        cmd.Parameters.AddWithValue("@fOrderStatus", f.order.fOrderStatus);
-                        cmd.Parameters.AddWithValue("@fPromotionId", f.order.fPromotionId);
-                        cmd.Parameters.AddWithValue("@fPaymentStatus", f.order.fPaymentStatus);
-                        cmd.Parameters.AddWithValue("@fShippingStatus", f.order.fShippingStatus);
-                        cmd.Parameters.AddWithValue("@fServiceStatus", f.order.fServiceStatus);
-                        cmd.Parameters.AddWithValue("@fPaymentInfo", f.order.fPaymentInfo);
-                        cmd.Parameters.AddWithValue("@fShippingInfo", f.order.fShippingInfo);
-                        cmd.Parameters.AddWithValue("@fInvoiceInfo", f.order.fInvoiceInfo);
-                        cmd.Parameters.AddWithValue("@fRecepientName", f.order.fRecepientName);
-                        cmd.Parameters.AddWithValue("@fRecepientAddress", f.order.fRecepientAddress);
-                        cmd.Parameters.AddWithValue("@fRecepientPhone", f.order.fRecepientPhone);
-                        cmd.Parameters.AddWithValue("@fRecepientEmail", f.order.fRecepientEmail);
-                        cmd.Parameters.AddWithValue("@fOrderRemarks", f.order.fOrderRemarks);
-                        cmd.Parameters.AddWithValue("@fReturnInfo", f.order.fReturnInfo);
-                        cmd.Parameters.AddWithValue("@fOrderId", orderId);
-                        cmd.ExecuteNonQuery();
+                        cmdOrder.Parameters.AddWithValue("@fUserId", f.order.fUserId);
+                        cmdOrder.Parameters.AddWithValue("@fOrderDate", f.order.fOrderDate);
+                        cmdOrder.Parameters.AddWithValue("@fOrderStatus", f.order.fOrderStatus);
+                        cmdOrder.Parameters.AddWithValue("@fPromotionId", f.order.fPromotionId);
+                        cmdOrder.Parameters.AddWithValue("@fPaymentStatus", f.order.fPaymentStatus);
+                        cmdOrder.Parameters.AddWithValue("@fShippingStatus", f.order.fShippingStatus);
+                        cmdOrder.Parameters.AddWithValue("@fServiceStatus", f.order.fServiceStatus);
+                        cmdOrder.Parameters.AddWithValue("@fPaymentInfo", f.order.fPaymentInfo);
+                        cmdOrder.Parameters.AddWithValue("@fShippingInfo", f.order.fShippingInfo);
+                        cmdOrder.Parameters.AddWithValue("@fInvoiceInfo", f.order.fInvoiceInfo);
+                        cmdOrder.Parameters.AddWithValue("@fRecepientName", f.order.fRecepientName);
+                        cmdOrder.Parameters.AddWithValue("@fRecepientAddress", f.order.fRecepientAddress);
+                        cmdOrder.Parameters.AddWithValue("@fRecepientPhone", f.order.fRecepientPhone);
+                        cmdOrder.Parameters.AddWithValue("@fRecepientEmail", f.order.fRecepientEmail);
+                        cmdOrder.Parameters.AddWithValue("@fOrderRemarks", f.order.fOrderRemarks);
+                        cmdOrder.Parameters.AddWithValue("@fReturnInfo", f.order.fReturnInfo);
+                        cmdOrder.Parameters.AddWithValue("@fOrderId", orderId);
+                        cmdOrder.ExecuteNonQuery();
+
+                        SqlCommand cmdOrderDetail = new SqlCommand(@"UPDATE tOrderDetail SET 
+                                            fProductId = @fProductId,
+                                            fQuantity = @fQuantity, 
+                                            fPrice = @fPrice 
+                                          WHERE fOrderId = @fOrderId", con);
+                        cmdOrderDetail.Parameters.AddWithValue("@fProductId", f.orderdetail.fQuantity);
+                        cmdOrderDetail.Parameters.AddWithValue("@fQuantity", f.orderdetail.fQuantity);
+                        cmdOrderDetail.Parameters.AddWithValue("@fPrice", f.orderdetail.fPrice);
+                        cmdOrderDetail.Parameters.AddWithValue("@fOrderId", orderId);
+                        cmdOrderDetail.ExecuteNonQuery();
                     }
 
                     btnOrderRefresh_Click(sender, e);
                 }
             }
         }
+
         private void btnOrderRead_Click(object sender, EventArgs e)
         {
-            //string sql = "SELECT o.fOrderId,
-            //    o.fUserId,
-            //    o.fOrderDate,
-            //    o.fOrderStatus,
-            //    od.fProductId,
-            //    od.fQuantity,
-            //    o.fPromotionId,
-            //    od.fPrice,
-            //    o.fPaymentStatus,
-            //    o.fShippingStatus,
-            //    o.fServiceStatus,
-            //    o.fPaymentInfo,
-            //    o.fShippingInfo,
-            //    o.fInvoiceInfo,
-            //    o.fRecepientName,
-            //    o.fRecepientAddress,
-            //    o.fRecepientPhone,
-            //    o.fRecepientEmail,
-            //    o.fOrderRemarks,
-            //    o.fReturnInfo
-            //FROM tOrder o
-            //JOIN tOrderDetail od ON o.fOrderId = od.fOrderId",dataGridView1);
-            //sql += " WHERE o.fRecepientEmail LIKE @K_KEYWORD";
+            string sql = @"SELECT o.fOrderId,
+                          o.fUserId,
+                          o.fOrderDate,
+                          o.fOrderStatus,
+                          od.fProductId,
+                          od.fQuantity,
+                          o.fPromotionId,
+                          od.fPrice,
+                          o.fPaymentStatus,
+                          o.fShippingStatus,
+                          o.fServiceStatus,
+                          o.fPaymentInfo,
+                          o.fShippingInfo,
+                          o.fInvoiceInfo,
+                          o.fRecepientName,
+                          o.fRecepientAddress,
+                          o.fRecepientPhone,
+                          o.fRecepientEmail,
+                          o.fOrderRemarks,
+                          o.fReturnInfo
+                   FROM tOrder o
+                   JOIN tOrderDetail od ON o.fOrderId = od.fOrderId
+                   WHERE o.fRecepientEmail LIKE @K_KEYWORD";
 
-            //displayBySql(sql,dataGridView1);
+            displayBySql(sql, dataGridView1);
         }
 
         private void btnDonateRefresh_Click(object sender, EventArgs e)
@@ -407,10 +427,10 @@ namespace AProject.FOrder
 
         private void btnDonateRead_Click(object sender, EventArgs e)
         {
-            //string sql = "SELECT * FROM tDonation";
-            //sql += " WHERE fCompanyId LIKE @K_KEYWORD";
+            string sql = "SELECT * FROM tDonation";
+            sql += " WHERE fDonationDate LIKE @K_KEYWORD";
 
-            //displayBySql(sql, dataGridView2);
+            displayBySql(sql, dataGridView2);
         }
 
         private void btnReviewRefresh_Click(object sender, EventArgs e)
@@ -437,13 +457,29 @@ namespace AProject.FOrder
                 using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO tOrderDetail (fOrderId, fProductId, fReviewDate, fReviewScore, fProductReview) VALUES (@fOrderId, @fProductId, @fReviewDate, @fReviewScore, @fProductReview)", con);
-                    cmd.Parameters.AddWithValue("@fOrderId", f.order.fOrderId);
-                    cmd.Parameters.AddWithValue("@fProductId", f.orderdetail.fProductId);
-                    cmd.Parameters.AddWithValue("@fReviewDate", f.orderdetail.fReviewDate);
-                    cmd.Parameters.AddWithValue("@fReviewScore", f.orderdetail.fReviewScore);
-                    cmd.Parameters.AddWithValue("@fProductReview", f.orderdetail.fProductReview);
-                    cmd.ExecuteNonQuery();
+
+                    SqlCommand cmdOrder = new SqlCommand(@"INSERT INTO tOrder (fUserId) 
+                        VALUES (@fUserId); 
+                        SELECT SCOPE_IDENTITY()", con);
+                    cmdOrder.Parameters.AddWithValue("@fUserId", f.order.fUserId);
+
+                    // 取得新插入的 fOrderId
+                    int newOrderId = Convert.ToInt32(cmdOrder.ExecuteScalar());
+
+                    SqlCommand cmdOrderDetail = new SqlCommand(@"INSERT INTO tOrderDetail (fOrderId, fProductId, fReviewDate, fReviewScore, fProductReview) 
+                        VALUES (@fOrderId, @fProductId, @fReviewDate, @fReviewScore, @fProductReview)", con);
+                    cmdOrderDetail.Parameters.AddWithValue("@fOrderId", newOrderId);
+                    cmdOrderDetail.Parameters.AddWithValue("@fProductId", f.orderdetail.fProductId);
+                    cmdOrderDetail.Parameters.AddWithValue("@fReviewDate", f.orderdetail.fReviewDate);
+                    cmdOrderDetail.Parameters.AddWithValue("@fReviewScore", f.orderdetail.fReviewScore);
+                    cmdOrderDetail.Parameters.AddWithValue("@fProductReview", f.orderdetail.fProductReview);
+                    //SqlCommand cmd = new SqlCommand("INSERT INTO tOrderDetail (fOrderId, fProductId, fReviewDate, fReviewScore, fProductReview) VALUES (@fOrderId, @fProductId, @fReviewDate, @fReviewScore, @fProductReview)", con);
+                    //cmd.Parameters.AddWithValue("@fOrderId", f.order.fOrderId);
+                    //cmd.Parameters.AddWithValue("@fProductId", f.orderdetail.fProductId);
+                    //cmd.Parameters.AddWithValue("@fReviewDate", f.orderdetail.fReviewDate);
+                    //cmd.Parameters.AddWithValue("@fReviewScore", f.orderdetail.fReviewScore);
+                    //cmd.Parameters.AddWithValue("@fProductReview", f.orderdetail.fProductReview);
+                    cmdOrderDetail.ExecuteNonQuery();
                 }
 
                 btnReviewRefresh_Click(sender, e);
@@ -457,6 +493,7 @@ namespace AProject.FOrder
                 DataGridViewRow selectedRow = dataGridView3.Rows[_position];
                 int orderdetailId = Convert.ToInt32(selectedRow.Cells["fOrderDetailId"].Value);
 
+
                 using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
                 {
                     con.Open();
@@ -464,7 +501,6 @@ namespace AProject.FOrder
                     cmd.Parameters.AddWithValue("@fOrderDetailId", orderdetailId);
                     cmd.ExecuteNonQuery();
                 }
-
                 btnReviewRefresh_Click(sender, e);
             }
         }
@@ -475,11 +511,12 @@ namespace AProject.FOrder
             {
                 DataGridViewRow selectedRow = dataGridView3.Rows[_position];
                 int orderdetailId = Convert.ToInt32(selectedRow.Cells["fOrderDetailId"].Value);
+                int orderId = Convert.ToInt32(selectedRow.Cells["fOrderId"].Value);
 
                 FrmReviewEditor f = new FrmReviewEditor();
                 f.orderdetail = new COrderDetail
                 {
-                    fOrderId = Convert.ToInt32(selectedRow.Cells["fOrderId"].Value),
+                    fOrderId = orderId,
                     fProductId = Convert.ToInt32(selectedRow.Cells["fProductId"].Value),
                     fReviewDate = selectedRow.Cells["fReviewDate"].Value.ToString(),
                     fReviewScore = Convert.ToInt32(selectedRow.Cells["fReviewScore"].Value),
@@ -494,20 +531,42 @@ namespace AProject.FOrder
                     using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
                     {
                         con.Open();
-                        SqlCommand cmd = new SqlCommand(@"UPDATE tOrderDetail SET 
-                                                    fOrderId = @fOrderId,
-                                                    fProductId = @fProductId, 
-                                                    fReviewDate = @fReviewDate, 
-                                                    fReviewScore = @fReviewScore,
-                                                    fProductReview = @fProductReview
-                                                  WHERE fOrderDetailId = @fOrderDetailId", con);
-                        cmd.Parameters.AddWithValue("@fOrderId", f.order.fOrderId);
-                        cmd.Parameters.AddWithValue("@fProductId", f.orderdetail.fProductId);
-                        cmd.Parameters.AddWithValue("@fReviewDate", f.orderdetail.fReviewDate);
-                        cmd.Parameters.AddWithValue("@fReviewScore", f.orderdetail.fReviewScore);
-                        cmd.Parameters.AddWithValue("@fProductReview", f.orderdetail.fProductReview);
-                        cmd.Parameters.AddWithValue("@fOrderDetailId", orderdetailId);
-                        cmd.ExecuteNonQuery();
+                        // 更新 Order，如果有需要修改
+                        SqlCommand cmdUpdateOrder = new SqlCommand(@"UPDATE tOrder SET 
+                                                            fUserId = @fUserId
+                                                          WHERE fOrderId = @fOrderId", con);
+                        cmdUpdateOrder.Parameters.AddWithValue("@fUserId", f.order.fUserId);
+                        cmdUpdateOrder.Parameters.AddWithValue("@fOrderId", orderId);
+                        cmdUpdateOrder.ExecuteNonQuery();
+
+                        // 更新 OrderDetail
+                        SqlCommand cmdUpdateDetail = new SqlCommand(@"UPDATE tOrderDetail SET 
+                                                fProductId = @fProductId, 
+                                                fReviewDate = @fReviewDate, 
+                                                fReviewScore = @fReviewScore,
+                                                fProductReview = @fProductReview
+                                              WHERE fOrderDetailId = @fOrderDetailId", con);
+                        cmdUpdateDetail.Parameters.AddWithValue("@fProductId", f.orderdetail.fProductId);
+                        cmdUpdateDetail.Parameters.AddWithValue("@fReviewDate", f.orderdetail.fReviewDate);
+                        cmdUpdateDetail.Parameters.AddWithValue("@fReviewScore", f.orderdetail.fReviewScore);
+                        cmdUpdateDetail.Parameters.AddWithValue("@fProductReview", f.orderdetail.fProductReview);
+                        cmdUpdateDetail.Parameters.AddWithValue("@fOrderDetailId", orderdetailId);
+                        cmdUpdateDetail.ExecuteNonQuery();
+
+                        //SqlCommand cmd = new SqlCommand(@"UPDATE tOrderDetail SET 
+                        //                            fOrderId = @fOrderId,
+                        //                            fProductId = @fProductId, 
+                        //                            fReviewDate = @fReviewDate, 
+                        //                            fReviewScore = @fReviewScore,
+                        //                            fProductReview = @fProductReview
+                        //                          WHERE fOrderDetailId = @fOrderDetailId", con);
+                        //cmd.Parameters.AddWithValue("@fOrderId", f.order.fOrderId);
+                        //cmd.Parameters.AddWithValue("@fProductId", f.orderdetail.fProductId);
+                        //cmd.Parameters.AddWithValue("@fReviewDate", f.orderdetail.fReviewDate);
+                        //cmd.Parameters.AddWithValue("@fReviewScore", f.orderdetail.fReviewScore);
+                        //cmd.Parameters.AddWithValue("@fProductReview", f.orderdetail.fProductReview);
+                        //cmd.Parameters.AddWithValue("@fOrderDetailId", orderdetailId);
+                        //cmd.ExecuteNonQuery();
                     }
                     btnReviewRefresh_Click(sender, e);
                 }
@@ -516,7 +575,18 @@ namespace AProject.FOrder
 
         private void btnReviewRead_Click(object sender, EventArgs e)
         {
-            //???
+            string sql = @"SELECT od.fOrderDetailId,
+                          o.fUserId,
+                          o.fOrderId,
+                          od.fProductId,
+                          od.fReviewDate,
+                          od.fReviewScore,
+                          od.fProductReview
+                   FROM tOrderDetail od
+                   JOIN tOrder o ON od.fOrderId = o.fOrderId
+                   WHERE od.fProductReview LIKE @K_KEYWORD";
+
+            displayBySql(sql, dataGridView3);
         }
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
