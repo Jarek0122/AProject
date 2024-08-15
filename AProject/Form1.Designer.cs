@@ -101,21 +101,21 @@
             // 活動訂單ToolStripMenuItem
             // 
             this.活動訂單ToolStripMenuItem.Name = "活動訂單ToolStripMenuItem";
-            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
             this.活動訂單ToolStripMenuItem.Text = "活動訂單";
             this.活動訂單ToolStripMenuItem.Click += new System.EventHandler(this.活動訂單ToolStripMenuItem_Click);
             // 
             // 活動上架ToolStripMenuItem
             // 
             this.活動上架ToolStripMenuItem.Name = "活動上架ToolStripMenuItem";
-            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
             this.活動上架ToolStripMenuItem.Text = "活動上架";
             this.活動上架ToolStripMenuItem.Click += new System.EventHandler(this.活動上架ToolStripMenuItem_Click);
             // 
             // 活動廣告ToolStripMenuItem
             // 
             this.活動廣告ToolStripMenuItem.Name = "活動廣告ToolStripMenuItem";
-            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
             this.活動廣告ToolStripMenuItem.Text = "活動廣告";
             // 
             // toolStripButton6
@@ -235,6 +235,7 @@
             this.toolStripButton10.Size = new System.Drawing.Size(180, 35);
             this.toolStripButton10.Text = "廣告管理";
             this.toolStripButton10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButton10.Click += new System.EventHandler(this.toolStripButton10_Click);
             // 
             // toolStripButton11
             // 

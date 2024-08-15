@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AProject.FAd;
 
 namespace AProject
 {
@@ -120,6 +121,13 @@ namespace AProject
             FrmProductList f= new FrmProductList();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            FrmAdverTisement newForm = new FrmAdverTisement();
+            newForm.MdiParent = this;
+            newForm.Show();
         }
     }
 }
