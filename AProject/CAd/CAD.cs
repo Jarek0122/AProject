@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace AProject.CMatch
 {
     public class CAD
-    {public int fAdvertisementId { get; set; }
-     public string fAdName { get; set; }
-     public string fUserName { get; set; }
-     public string fAdType { get; set; }
-     public string fImagePath { get; set; }
+    {public int AdvertisementId { get; set; }
+     public string AdName { get; set; }
+     public string UserName { get; set; }
+     public string AdType { get; set; }
+     public string ImagePath { get; set; }
 
-     public string fLink { get; set; }
-     public int fUserId { get; set; }
+     public string Link { get; set; }
+     public int UserId { get; set; }
 
 
 

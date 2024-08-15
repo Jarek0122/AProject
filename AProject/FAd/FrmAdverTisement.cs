@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using AProject.CMatch;
-namespace AProject.FMatch
+
+namespace AProject.FAd
 {
     public partial class FrmAdverTisement : Form
     {
@@ -21,43 +22,76 @@ namespace AProject.FMatch
             populate();
         }
         public CAD CAD
-            { 
-            get 
-            { 
-                if(_CAD == null)
+        {
+            get
+            {
+                if (_CAD == null)
                     _CAD = new CAD();
-                _CAD.fAdName = LBad.Text;
-                _CAD.fUserName = Lbuser.Text;
-                _CAD.fAdType = SelectAd.Text;
-                _CAD.fImagePath = LbImagepath.Text;
-                _CAD.fLink = LbNet.Text;
+                _CAD.AdName = LBad.Text;
+                _CAD.UserName = Lbuser.Text;
+                _CAD.AdType = SelectAd.Text;
+                _CAD.ImagePath = LbImagepath.Text;
+                _CAD.Link = LbNet.Text;
 
 
 
-                return _CAD; 
+                return _CAD;
             }
             set
             {
 
-            _CAD = value;
-                LBad.Text =_CAD.fAdName;
-                Lbuser.Text = _CAD.fUserName;
-                SelectAd.Text = _CAD.fAdType;
-                LbImagepath.Text = _CAD.fImagePath;
-                LbNet.Text = _CAD.fLink;
+                _CAD = value;
+                LBad.Text = _CAD.AdName;
+                Lbuser.Text = _CAD.UserName;
+                SelectAd.Text = _CAD.AdType;
+                LbImagepath.Text = _CAD.ImagePath;
+                LbNet.Text = _CAD.Link;
 
 
             }
         }
-        
-        
-        //SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=ad;Integrated Security=True;");
-        SqlConnection con = new SqlConnection(@"Data Source = 192.168.35.57,1433; Initial Catalog = Aproject; User ID = Ray; Encrypt=False;");
+
+
+        //SqlConnection con = new SqlConnection(@"Data Source = 192.168.35.57,1433; Initial Catalog = Aproject; User ID = Ray; Encrypt=False;");
         private void populate()
         {
-            
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=.;Initial Catalog=ad;Integrated Security=True;";
             con.Open();
-            string query = "select *from tAdvertisement ";
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+
+
+
+
+
+            string query = "select *from Advertisement ";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+
+            var ds = new DataSet();
+            sda.Fill(ds);
+            AdDGV.DataSource = ds.Tables[0];
+            con.Close();
+
+
+        }
+        private void Filter()
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=.;Initial Catalog=ad;Integrated Security=True;";
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+
+
+
+
+
+
+            string query = "select *from Advertisement where AdType = '" + Choosetype.SelectedItem.ToString() + "'";
             SqlDataAdapter sda = new SqlDataAdapter(query, con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
@@ -65,17 +99,7 @@ namespace AProject.FMatch
             AdDGV.DataSource = ds.Tables[0];
             con.Close();
 
-        }
-        private void Filter()
-        {
-            con.Open();
-            string query = "select *from tAdvertisement where fAdType = '"+Choosetype.SelectedItem.ToString()+"'" ;
-            SqlDataAdapter sda = new SqlDataAdapter(query, con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            AdDGV.DataSource = ds.Tables[0];
-            con.Close();
+
 
         }
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -111,8 +135,7 @@ namespace AProject.FMatch
 
         private void adadd_Click_1(object sender, EventArgs e)
         {
-            FMatch.FrmAddAD newForm = new FMatch.FrmAddAD();
-            newForm.Show();
+
 
         }
 
@@ -140,24 +163,31 @@ namespace AProject.FMatch
         {
 
         }
-        int key = 0;
+
+        private string key = null;
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LBad.Text = AdDGV.SelectedRows[0].Cells[0].Value.ToString();
-            Lbuser.Text=AdDGV.SelectedRows[0].Cells[1].Value.ToString();
-            SelectAd.SelectedItem= AdDGV.SelectedRows[0].Cells[2].Value.ToString();
-            LbImagepath.Text= AdDGV.SelectedRows[0].Cells[3].Value.ToString();
-            LbNet.Text= AdDGV.SelectedRows[0].Cells[4].Value.ToString();
-            if (LBad.Text == "")
+            if (AdDGV.SelectedRows.Count > 0)
             {
-                key = 0;
+                var selectedRow = AdDGV.SelectedRows[0];
 
-            }
-            else
-            {
-                key = Convert.ToInt32(AdDGV.SelectedRows[0].Cells[0].Value.ToString());
-                
-            
+                if (selectedRow.Cells[0].Value != null)
+                {
+                    LBad.Text = selectedRow.Cells[0].Value.ToString();
+                    key = LBad.Text;
+                }
+
+                if (selectedRow.Cells[1].Value != null)
+                    Lbuser.Text = selectedRow.Cells[1].Value.ToString();
+
+                if (selectedRow.Cells[2].Value != null)
+                    SelectAd.SelectedItem = selectedRow.Cells[2].Value.ToString();
+
+                if (selectedRow.Cells[3].Value != null)
+                    LbImagepath.Text = selectedRow.Cells[3].Value.ToString();
+
+                if (selectedRow.Cells[4].Value != null)
+                    LbNet.Text = selectedRow.Cells[4].Value.ToString();
             }
         }
 
@@ -176,23 +206,62 @@ namespace AProject.FMatch
             {
                 DataTable dt = AdDGV.DataSource as DataTable;
                 DataRow dr = dt.NewRow();
-                dr["fAdName"] = LBad.Text;
-                dr["fUserName"] = Lbuser.Text;
-                dr["fAdType"] = SelectAd.Text;
-                dr["fImagePath"] = LbImagepath.Text;
-                dr["fLink"] = LbNet;
+                dr["AdName"] = LBad.Text;
+                dr["UserName"] = Lbuser.Text;
+                dr["AdType"] = SelectAd.Text;
+                dr["ImagePath"] = LbImagepath.Text;
+                dr["Link"] = LbNet;
                 dt.Rows.Add(dr);
-                MessageBox.Show("廣告上傳完成");
-                con.Close();
-                
-                
+                create(CAD);
+                MessageBox.Show("廣告上架成功");
+
+
+
             }
-            
+
+
+
+
+
 
 
 
 
         }
+
+        private void create(CAD p)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=.;Initial Catalog=ad;Integrated Security=True;";
+            con.Open();
+
+            String sql = "INSERT INTO Advertisement( AdName, UserName, AdType, ImagePath, Link) VALUES( @AdName, @UserName, @AdType, @ImagePath, @Link)";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = sql;
+
+            cmd.Parameters.AddWithValue("@AdName", p.AdName);
+            cmd.Parameters.AddWithValue("@UserName", p.UserName);
+            cmd.Parameters.AddWithValue("@AdType", p.AdType);
+            cmd.Parameters.AddWithValue("@ImagePath", p.ImagePath);
+            cmd.Parameters.AddWithValue("@Link", p.Link);
+            cmd.ExecuteNonQuery();
+
+
+
+
+
+
+
+            cmd.Connection = con;
+
+
+
+
+            con.Close();
+        }
+
+
 
         private void Choosetype_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -203,6 +272,7 @@ namespace AProject.FMatch
         private void Btnupdate_Click(object sender, EventArgs e)
         {
             
+            populate();
             Choosetype.SelectedIndex = -1;
         }
         private void reset()
@@ -216,36 +286,112 @@ namespace AProject.FMatch
         private void btnreset_Click(object sender, EventArgs e)
         {
             reset();
-           
+
         }
+
+
 
         private void btndelete_Click(object sender, EventArgs e)
         {
-            if (key == 0)
+            
+            if (string.IsNullOrEmpty(key))
             {
-                MessageBox.Show("欄位不可為空");
+                MessageBox.Show("請選擇要刪除的廣告");
+                return;
             }
 
-            else
+            var result = MessageBox.Show("確定要刪除選中的廣告嗎？", "刪除確認", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
             {
-                try
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=ad;Integrated Security=True;"))
                 {
                     con.Open();
 
-                    string query = "delete from Advertisement where AdvertisementId ="+key+""; 
+                    string query = "DELETE FROM Advertisement WHERE AdName = @AdName";
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("廣告移除成功");
-                    con.Close();
-                    populate();
-                    reset();
-                }
-                catch (Exception Ex)
-                {
-                    MessageBox.Show(Ex.Message);
+                    cmd.Parameters.AddWithValue("@AdName", key);
 
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("廣告刪除成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("未找到要刪除的廣告");
+                    }
+
+                    populate(); 
+                    reset(); 
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("發生錯誤: " + ex.Message);
+            }
+        }
+
+
+
+        private void Btnwrite_Click(object sender, EventArgs e)
+        {
+            
+            if (string.IsNullOrEmpty(key))
+            {
+                MessageBox.Show("請選擇要更新的廣告");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(LBad.Text) || string.IsNullOrEmpty(Lbuser.Text) ||
+                SelectAd.SelectedIndex == -1 || string.IsNullOrEmpty(LbImagepath.Text) ||
+                string.IsNullOrEmpty(LbNet.Text))
+            {
+                MessageBox.Show("所有欄位都必須填寫");
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=ad;Integrated Security=True;"))
+                {
+                    con.Open();
+
+                    string query = "UPDATE Advertisement SET AdName = @AdName, UserName = @UserName, AdType = @AdType, ImagePath = @ImagePath, Link = @Link WHERE AdName = @OldAdName";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@AdName", LBad.Text);
+                    cmd.Parameters.AddWithValue("@UserName", Lbuser.Text);
+                    cmd.Parameters.AddWithValue("@AdType", SelectAd.Text);
+                    cmd.Parameters.AddWithValue("@ImagePath", LbImagepath.Text);
+                    cmd.Parameters.AddWithValue("@Link", LbNet.Text);
+                    cmd.Parameters.AddWithValue("@OldAdName", key); 
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("廣告更新成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("更新失敗，未找到要更新的廣告");
+                    }
+
+                    populate(); 
+                    reset(); 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("發生錯誤: " + ex.Message);
             }
         }
     }
 }
+
+       
+    

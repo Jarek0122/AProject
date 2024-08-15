@@ -36,7 +36,7 @@ namespace AProject
 
         private void toolStripButton10_Click(object sender, EventArgs e)
         {
-            FMatch.FrmAdverTisement newForm = new FMatch.FrmAdverTisement();
+            FAd.FrmAdverTisement newForm = new FAd.FrmAdverTisement();
             newForm.Show();
 
         }

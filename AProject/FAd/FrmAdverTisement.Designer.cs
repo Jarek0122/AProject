@@ -1,4 +1,4 @@
-﻿namespace AProject.FMatch
+﻿namespace AProject.FAd
 {
     partial class FrmAdverTisement
     {
@@ -45,6 +45,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AdDGV = new System.Windows.Forms.DataGridView();
+            this.廣告名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.會員名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.廣告類型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.圖片路徑 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.網站連結 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.adDataSet = new AProject.adDataSet();
             this.btnreset = new System.Windows.Forms.Button();
@@ -59,11 +64,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.廣告名稱 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.廣告名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.會員名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.廣告類型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.圖片路徑 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.網站連結 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -117,7 +117,7 @@
             this.exit.ForeColor = System.Drawing.Color.YellowGreen;
             this.exit.Location = new System.Drawing.Point(63, 247);
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(73, 36);
+            this.exit.Size = new System.Drawing.Size(112, 55);
             this.exit.TabIndex = 0;
             this.exit.Text = "離開";
             this.exit.Click += new System.EventHandler(this.exit_Click);
@@ -129,7 +129,7 @@
             this.adadd.ForeColor = System.Drawing.Color.YellowGreen;
             this.adadd.Location = new System.Drawing.Point(63, 11);
             this.adadd.Name = "adadd";
-            this.adadd.Size = new System.Drawing.Size(131, 36);
+            this.adadd.Size = new System.Drawing.Size(200, 55);
             this.adadd.TabIndex = 0;
             this.adadd.Text = "廣告上架";
             this.adadd.Click += new System.EventHandler(this.adadd_Click_1);
@@ -166,14 +166,14 @@
             // 
             this.LbNet.Location = new System.Drawing.Point(422, 117);
             this.LbNet.Name = "LbNet";
-            this.LbNet.Size = new System.Drawing.Size(239, 29);
+            this.LbNet.Size = new System.Drawing.Size(239, 39);
             this.LbNet.TabIndex = 10;
             // 
             // LbImagepath
             // 
             this.LbImagepath.Location = new System.Drawing.Point(89, 117);
             this.LbImagepath.Name = "LbImagepath";
-            this.LbImagepath.Size = new System.Drawing.Size(239, 29);
+            this.LbImagepath.Size = new System.Drawing.Size(239, 39);
             this.LbImagepath.TabIndex = 10;
             // 
             // Btnupdate
@@ -210,7 +210,7 @@
             "常駐廣告"});
             this.Choosetype.Location = new System.Drawing.Point(267, 217);
             this.Choosetype.Name = "Choosetype";
-            this.Choosetype.Size = new System.Drawing.Size(121, 28);
+            this.Choosetype.Size = new System.Drawing.Size(121, 38);
             this.Choosetype.TabIndex = 7;
             this.Choosetype.Text = "選定分類";
             this.Choosetype.SelectionChangeCommitted += new System.EventHandler(this.Choosetype_SelectionChangeCommitted);
@@ -222,7 +222,7 @@
             this.label4.ForeColor = System.Drawing.Color.YellowGreen;
             this.label4.Location = new System.Drawing.Point(118, 212);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 36);
+            this.label4.Size = new System.Drawing.Size(200, 55);
             this.label4.TabIndex = 6;
             this.label4.Text = "廣告列表";
             // 
@@ -233,7 +233,7 @@
             this.label3.ForeColor = System.Drawing.Color.YellowGreen;
             this.label3.Location = new System.Drawing.Point(286, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 36);
+            this.label3.Size = new System.Drawing.Size(156, 55);
             this.label3.TabIndex = 2;
             this.label3.Text = "賺錢囉";
             // 
@@ -258,6 +258,7 @@
             this.AdDGV.Name = "AdDGV";
             this.AdDGV.ReadOnly = true;
             this.AdDGV.RowHeadersVisible = false;
+            this.AdDGV.RowHeadersWidth = 62;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
             this.AdDGV.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.AdDGV.RowTemplate.Height = 24;
@@ -265,6 +266,46 @@
             this.AdDGV.Size = new System.Drawing.Size(643, 244);
             this.AdDGV.TabIndex = 5;
             this.AdDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // 廣告名
+            // 
+            this.廣告名.DataPropertyName = "AdName";
+            this.廣告名.HeaderText = "廣告名";
+            this.廣告名.MinimumWidth = 8;
+            this.廣告名.Name = "廣告名";
+            this.廣告名.ReadOnly = true;
+            // 
+            // 會員名稱
+            // 
+            this.會員名稱.DataPropertyName = "UserName";
+            this.會員名稱.HeaderText = "會員名稱";
+            this.會員名稱.MinimumWidth = 8;
+            this.會員名稱.Name = "會員名稱";
+            this.會員名稱.ReadOnly = true;
+            // 
+            // 廣告類型
+            // 
+            this.廣告類型.DataPropertyName = "Adtype";
+            this.廣告類型.HeaderText = "廣告類型";
+            this.廣告類型.MinimumWidth = 8;
+            this.廣告類型.Name = "廣告類型";
+            this.廣告類型.ReadOnly = true;
+            // 
+            // 圖片路徑
+            // 
+            this.圖片路徑.DataPropertyName = "ImagePath";
+            this.圖片路徑.HeaderText = "圖片路徑";
+            this.圖片路徑.MinimumWidth = 8;
+            this.圖片路徑.Name = "圖片路徑";
+            this.圖片路徑.ReadOnly = true;
+            // 
+            // 網站連結
+            // 
+            this.網站連結.DataPropertyName = "Link";
+            this.網站連結.HeaderText = "網站連結";
+            this.網站連結.MinimumWidth = 8;
+            this.網站連結.Name = "網站連結";
+            this.網站連結.ReadOnly = true;
             // 
             // adDataSetBindingSource
             // 
@@ -300,6 +341,7 @@
             this.Btnwrite.TabIndex = 4;
             this.Btnwrite.Text = "編輯";
             this.Btnwrite.UseVisualStyleBackColor = false;
+            this.Btnwrite.Click += new System.EventHandler(this.Btnwrite_Click);
             // 
             // Btnsave
             // 
@@ -322,7 +364,7 @@
             "常駐廣告"});
             this.SelectAd.Location = new System.Drawing.Point(310, 73);
             this.SelectAd.Name = "SelectAd";
-            this.SelectAd.Size = new System.Drawing.Size(121, 28);
+            this.SelectAd.Size = new System.Drawing.Size(121, 38);
             this.SelectAd.TabIndex = 2;
             this.SelectAd.TabStop = false;
             this.SelectAd.Text = "全部分類";
@@ -336,7 +378,7 @@
             this.Lbadtype.Location = new System.Drawing.Point(305, 50);
             this.Lbadtype.Name = "Lbadtype";
             this.Lbadtype.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Lbadtype.Size = new System.Drawing.Size(73, 20);
+            this.Lbadtype.Size = new System.Drawing.Size(109, 30);
             this.Lbadtype.TabIndex = 1;
             this.Lbadtype.Text = "廣告類型";
             this.Lbadtype.Click += new System.EventHandler(this.廣告名稱_Click);
@@ -350,7 +392,7 @@
             this.label1.Location = new System.Drawing.Point(152, 50);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(73, 20);
+            this.label1.Size = new System.Drawing.Size(109, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "會員名稱";
             this.label1.Click += new System.EventHandler(this.廣告名稱_Click);
@@ -359,7 +401,7 @@
             // 
             this.LBad.Location = new System.Drawing.Point(7, 72);
             this.LBad.Name = "LBad";
-            this.LBad.Size = new System.Drawing.Size(122, 29);
+            this.LBad.Size = new System.Drawing.Size(122, 39);
             this.LBad.TabIndex = 0;
             this.LBad.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -367,7 +409,7 @@
             // 
             this.Lbuser.Location = new System.Drawing.Point(156, 73);
             this.Lbuser.Name = "Lbuser";
-            this.Lbuser.Size = new System.Drawing.Size(122, 29);
+            this.Lbuser.Size = new System.Drawing.Size(122, 39);
             this.Lbuser.TabIndex = 0;
             this.Lbuser.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -380,7 +422,7 @@
             this.label5.Location = new System.Drawing.Point(343, 120);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(73, 20);
+            this.label5.Size = new System.Drawing.Size(109, 30);
             this.label5.TabIndex = 1;
             this.label5.Text = "網站連結";
             this.label5.Click += new System.EventHandler(this.廣告名稱_Click);
@@ -394,7 +436,7 @@
             this.label2.Location = new System.Drawing.Point(10, 120);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(109, 30);
             this.label2.TabIndex = 1;
             this.label2.Text = "圖片路徑";
             this.label2.Click += new System.EventHandler(this.廣告名稱_Click);
@@ -408,49 +450,14 @@
             this.廣告名稱.Location = new System.Drawing.Point(10, 50);
             this.廣告名稱.Name = "廣告名稱";
             this.廣告名稱.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.廣告名稱.Size = new System.Drawing.Size(73, 20);
+            this.廣告名稱.Size = new System.Drawing.Size(109, 30);
             this.廣告名稱.TabIndex = 1;
             this.廣告名稱.Text = "廣告名稱";
             this.廣告名稱.Click += new System.EventHandler(this.廣告名稱_Click);
             // 
-            // 廣告名
-            // 
-            this.廣告名.DataPropertyName = "fAdName";
-            this.廣告名.HeaderText = "廣告名";
-            this.廣告名.Name = "廣告名";
-            this.廣告名.ReadOnly = true;
-            // 
-            // 會員名稱
-            // 
-            this.會員名稱.DataPropertyName = "fUserName";
-            this.會員名稱.HeaderText = "會員名稱";
-            this.會員名稱.Name = "會員名稱";
-            this.會員名稱.ReadOnly = true;
-            // 
-            // 廣告類型
-            // 
-            this.廣告類型.DataPropertyName = "fAdtype";
-            this.廣告類型.HeaderText = "廣告類型";
-            this.廣告類型.Name = "廣告類型";
-            this.廣告類型.ReadOnly = true;
-            // 
-            // 圖片路徑
-            // 
-            this.圖片路徑.DataPropertyName = "fImagePath";
-            this.圖片路徑.HeaderText = "圖片路徑";
-            this.圖片路徑.Name = "圖片路徑";
-            this.圖片路徑.ReadOnly = true;
-            // 
-            // 網站連結
-            // 
-            this.網站連結.DataPropertyName = "fLink";
-            this.網站連結.HeaderText = "網站連結";
-            this.網站連結.Name = "網站連結";
-            this.網站連結.ReadOnly = true;
-            // 
             // FrmAdverTisement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(886, 531);

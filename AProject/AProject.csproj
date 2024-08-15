@@ -166,31 +166,22 @@
       <DependentUpon>adDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="CAd\CAD.cs" />
-    <Compile Include="FAd\FrmAddAD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FAd\FrmAddAD.Designer.cs">
-      <DependentUpon>FrmAddAD.cs</DependentUpon>
-    </Compile>
     <Compile Include="FAd\FrmAdverTisement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FAd\FrmAdverTisement.Designer.cs">
       <DependentUpon>FrmAdverTisement.cs</DependentUpon>
     </Compile>
-    <Compile Include="FAd\Form1.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FAd\Form1.Designer.cs">
+    <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAd\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FAd\Form1.resx">
+    <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FAd\FrmAddAD.resx">
-      <DependentUpon>FrmAddAD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FAd\FrmAdverTisement.resx">
       <DependentUpon>FrmAdverTisement.cs</DependentUpon>
