@@ -39,7 +39,8 @@ namespace AProject.FMatch
 
         private void LoadData()
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 string query = @"
                  SELECT *
@@ -58,7 +59,8 @@ namespace AProject.FMatch
         {
             checkedListBox2.Items.Clear();
 
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 string query = "SELECT fTraitsId, fTraitsName FROM tTraits";
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -88,7 +90,8 @@ namespace AProject.FMatch
         private void LoadHobbyList()
         {
             checkedListBox1.Items.Clear();
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 string query = "SELECT fHobbyId, fHobbyName FROM tHobby";
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -125,7 +128,8 @@ namespace AProject.FMatch
         private void displayBysql(string sql)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
+            //con.ConnectionString = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
+            con.ConnectionString = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False";
             con.Open();
 
             _adapter = new SqlDataAdapter(sql, con);
@@ -199,7 +203,8 @@ namespace AProject.FMatch
                 checkedListBox2.SetItemChecked(i, false);
             }
 
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 string query = @"
                 SELECT fTraitsId
@@ -243,7 +248,8 @@ namespace AProject.FMatch
                 checkedListBox1.SetItemChecked(i, false);
             }
 
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 string query = @"
                 SELECT fHobbyId
@@ -280,7 +286,8 @@ namespace AProject.FMatch
 
         private void LoadMemberAgeRange(int userId)
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 string query = @"
                 SELECT fMinAge, fMaxAge, fGender, fMinHeight, fMaxHeight
@@ -361,7 +368,8 @@ namespace AProject.FMatch
 
         private void SaveMemberPrefer(int userId)
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 con.Open();
                 SqlTransaction transaction = con.BeginTransaction();

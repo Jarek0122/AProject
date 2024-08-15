@@ -22,7 +22,8 @@ namespace AProject.FMatch
 
         private void LoadMemberData()
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 try
                 {
@@ -67,7 +68,8 @@ namespace AProject.FMatch
 
         private void PerformAutoMatch(int selectedUserId)
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 con.Open();
 
@@ -188,7 +190,8 @@ namespace AProject.FMatch
                 // 獲取當前日期作為配對日期
                 string matchDate = DateTime.Now.ToString("yyyy-MM-dd");
 
-                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
                 {
                     con.Open();
 

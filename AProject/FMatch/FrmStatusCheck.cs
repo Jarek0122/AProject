@@ -22,7 +22,8 @@ namespace AProject.FMatch
 
         private void LoadMatchStatus()
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+            using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
             {
                 try
                 {
@@ -57,7 +58,8 @@ namespace AProject.FMatch
             }
             else
             {
-                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                //using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;User ID=Yucheng;Encrypt=False"))
                 {
                     try
                     {
@@ -138,7 +140,7 @@ namespace AProject.FMatch
             dgvMatchStatus.Columns[2].HeaderText = "配對會員Id";
             dgvMatchStatus.Columns[3].Width = 100;
             dgvMatchStatus.Columns[3].HeaderText = "配對日期";
-            dgvMatchStatus.Columns[4].Width = 80;
+            dgvMatchStatus.Columns[4].Width = 100;
             dgvMatchStatus.Columns[4].HeaderText = "配對狀態";
             dgvMatchStatus.Columns[5].Width = 100;
             dgvMatchStatus.Columns[5].HeaderText = "更新日期";
