@@ -1,4 +1,5 @@
-﻿using AProject.FUser;
+﻿using AProject.Views;
+using AProject.FUser;
 using AProject.FOrder;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,13 @@ namespace AProject
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
             FrmOrderManager f = new FrmOrderManager();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void btnEditProd_Click(object sender, EventArgs e)
+        {
+            FrmProductList f= new FrmProductList();
             f.MdiParent = this;
             f.Show();
         }

@@ -35,7 +35,13 @@
             this.活動上架ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.活動廣告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            //this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.收驚管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.點燈ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnProdManage = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btnEditProd = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEditProdStock = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripDropDownButton();
             this.收驚管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.點燈ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,15 +69,15 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton4,
             this.toolStripButton6,
-            this.toolStripButton7,
+            this.btnProdManage,
             this.toolStripButton8,
             this.toolStripButton9,
             this.toolStripButton10,
             this.toolStripButton11,
             this.toolStripDropDownButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 100);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 120);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(179, 501);
+            this.toolStrip1.Size = new System.Drawing.Size(201, 601);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -122,17 +128,61 @@
             this.toolStripButton6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
-            // toolStripButton7
+            // btnProdManage
             // 
-            this.toolStripButton7.AutoSize = false;
-            this.toolStripButton7.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(180, 35);
-            this.toolStripButton7.Text = "商品管理";
-            this.toolStripButton7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProdManage.AutoSize = false;
+            this.btnProdManage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnEditProd,
+            this.btnEditProdStock});
+            this.btnProdManage.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnProdManage.Image = ((System.Drawing.Image)(resources.GetObject("btnProdManage.Image")));
+            this.btnProdManage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnProdManage.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.btnProdManage.Name = "btnProdManage";
+            this.btnProdManage.Size = new System.Drawing.Size(180, 35);
+            this.btnProdManage.Text = "商品管理";
+            this.btnProdManage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnEditProd
+            // 
+            this.btnEditProd.Name = "btnEditProd";
+            this.btnEditProd.Size = new System.Drawing.Size(270, 38);
+            this.btnEditProd.Text = "編輯商品";
+            this.btnEditProd.Click += new System.EventHandler(this.btnEditProd_Click);
+            // 
+            // btnEditProdStock
+            // 
+            this.btnEditProdStock.Name = "btnEditProdStock";
+            this.btnEditProdStock.Size = new System.Drawing.Size(270, 38);
+            this.btnEditProdStock.Text = "編輯庫存";
+            this.btnEditProdStock.Visible = false;
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.AutoSize = false;
+            this.toolStripButton8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.收驚管理ToolStripMenuItem,
+            this.點燈ToolStripMenuItem});
+            this.toolStripButton8.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(180, 35);
+            this.toolStripButton8.Text = "服務管理";
+            this.toolStripButton8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // 收驚管理ToolStripMenuItem
+            // 
+            this.收驚管理ToolStripMenuItem.Name = "收驚管理ToolStripMenuItem";
+            this.收驚管理ToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
+            this.收驚管理ToolStripMenuItem.Text = "收驚";
+            // 
+            // 點燈ToolStripMenuItem
+            // 
+            this.點燈ToolStripMenuItem.Name = "點燈ToolStripMenuItem";
+            this.點燈ToolStripMenuItem.Size = new System.Drawing.Size(270, 38);
+            this.點燈ToolStripMenuItem.Text = "點燈";
             // 
             // toolStripButton8
             // 
@@ -217,25 +267,25 @@
             // 廠商管理ToolStripMenuItem
             // 
             this.廠商管理ToolStripMenuItem.Name = "廠商管理ToolStripMenuItem";
-            this.廠商管理ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.廠商管理ToolStripMenuItem.Size = new System.Drawing.Size(212, 38);
             this.廠商管理ToolStripMenuItem.Text = "廠商管理";
             // 
             // 會員管理ToolStripMenuItem
             // 
             this.會員管理ToolStripMenuItem.Name = "會員管理ToolStripMenuItem";
-            this.會員管理ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.會員管理ToolStripMenuItem.Size = new System.Drawing.Size(212, 38);
             this.會員管理ToolStripMenuItem.Text = "會員管理";
             this.會員管理ToolStripMenuItem.Click += new System.EventHandler(this.會員管理ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(175, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(209, 6);
             // 
             // 管理設定ToolStripMenuItem
             // 
             this.管理設定ToolStripMenuItem.Name = "管理設定ToolStripMenuItem";
-            this.管理設定ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.管理設定ToolStripMenuItem.Size = new System.Drawing.Size(212, 38);
             this.管理設定ToolStripMenuItem.Text = "管理設定";
             // 
             // panel1
@@ -245,8 +295,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1134, 100);
+            this.panel1.Size = new System.Drawing.Size(1276, 120);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -255,9 +306,9 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(100, 0);
+            this.label1.Location = new System.Drawing.Point(112, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1032, 98);
+            this.label1.Size = new System.Drawing.Size(1162, 118);
             this.label1.TabIndex = 1;
             this.label1.Text = "信我者得永生";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -266,19 +317,21 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(112, 118);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 601);
+            this.ClientSize = new System.Drawing.Size(1276, 721);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -295,7 +348,6 @@
         #endregion
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.ToolStripButton toolStripButton11;
@@ -314,6 +366,9 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripButton8;
         private System.Windows.Forms.ToolStripMenuItem 收驚管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 點燈ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton btnProdManage;
+        private System.Windows.Forms.ToolStripMenuItem btnEditProd;
+        private System.Windows.Forms.ToolStripMenuItem btnEditProdStock;
     }
 }
 

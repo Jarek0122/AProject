@@ -97,6 +97,8 @@
     <Compile Include="FOrder\FrmReviewEditor.Designer.cs">
       <DependentUpon>FrmReviewEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="CProduct\CNumberUtility.cs" />
+    <Compile Include="CProduct\CProd.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +122,18 @@
     </Compile>
     <Compile Include="FUser\FrmUserEditor.Designer.cs">
       <DependentUpon>FrmUserEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FProduct\FrmProdStockEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FProduct\FrmProdStockEditor.Designer.cs">
+      <DependentUpon>FrmProdStockEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FProduct\FrmProductEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FProduct\FrmProductEditor.Designer.cs">
+      <DependentUpon>FrmProductEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +159,12 @@
     <EmbeddedResource Include="FOrder\FrmReviewEditor.resx">
       <DependentUpon>FrmReviewEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="FProduct\FrmProductList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FProduct\FrmProductList.Designer.cs">
+      <DependentUpon>FrmProductList.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +177,12 @@
     <EmbeddedResource Include="FUser\FrmUserEditor.resx">
       <DependentUpon>FrmUserEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FProduct\FrmProdStockEditor.resx">
+      <DependentUpon>FrmProdStockEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FProduct\FrmProductEditor.resx">
+      <DependentUpon>FrmProductEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -166,6 +192,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FProduct\FrmProductList.resx">
+      <DependentUpon>FrmProductList.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
