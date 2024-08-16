@@ -10,14 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace AProject.View
 {
     public partial class FrmActManager : Form
     {
         public static int userId = 11;
-        private string SqlconnectS = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;Persist Security Info=True;User ID=Lucy";
-        //private string SqlconnectS = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
+        public string SqlconnectS = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;Persist Security Info=True;User ID=Lucy";
+        //public string SqlconnectS = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
         private int _position;
         private SqlDataAdapter _adapterAllAct;
         private SqlCommandBuilder _builderAllAct;
@@ -42,7 +43,6 @@ namespace AProject.View
             if (f.isOk != DialogResult.OK)
                 return;
             creatAct(f);
-
         }
 
         private void creatAct(FrmActEditor f)
@@ -89,7 +89,6 @@ namespace AProject.View
                 cmdCreatAct.Parameters.Add(new SqlParameter("KfActUpdateDate", (object)a.fEditorDay));
                 cmdCreatAct.Parameters.Add(new SqlParameter("KfRemovalMark", (object)a.fActStatus));
                 cmdCreatAct.ExecuteNonQuery();
-
 
                 SqlCommand sqlfindActId = new SqlCommand("select Max(fActId) as ActId from tActInformation", con);
                 sqlfindActId.Transaction = transactionAct;
@@ -149,7 +148,7 @@ namespace AProject.View
                     }
                     transactionAct.Commit();
                 }
-                resetDisplay();
+                resetDisplay("select * from tActInformation");
             }
             catch (Exception E)
             {
@@ -161,18 +160,20 @@ namespace AProject.View
 
         private void FrmActManager_Load(object sender, EventArgs e)
         {
-            resetDisplay();
+            resetDisplay("select * from tActInformation");
         }
 
-        private void resetDisplay()
+        private void resetDisplay(string sql)
         {
+            string findKeyword = ActKeyword.Text;
+
             flowLayoutPanel1.Controls.Clear();
             SqlConnection con = new SqlConnection(SqlconnectS);
             con.Open();
             DataSet ds = new DataSet();
 
-            _adapterInfo = new SqlDataAdapter("select * from tActInformation", con);
-//keyword           // _adapterInfo.SelectCommand.Parameters.Add(new SqlParameter("Keyword"," Where ");
+            _adapterInfo = new SqlDataAdapter(sql, con);
+            _adapterInfo.SelectCommand.Parameters.Add(new SqlParameter("Keyword","%" + (object)findKeyword + "%"));
             _builderInfo = new SqlCommandBuilder(_adapterInfo);
             ds.Tables.Add("tActInformation");
             _adapterInfo.Fill(ds.Tables["tActInformation"]);
@@ -233,8 +234,19 @@ namespace AProject.View
                 ActBox box = new ActBox();
                 box.act = a;
                 box.boxClick += this.actClick;
+                box.DoubleClick += this.actDoubleClick;
                 flowLayoutPanel1.Controls.Add(box);
             }
+        }
+
+        private void actDoubleClick(CAct a)
+        {
+            if (_Act == null)
+            {
+                _Act = new CAct();
+            }
+            _Act = a;
+            updateAct();
         }
 
         public void actClick(CAct a)
@@ -244,10 +256,15 @@ namespace AProject.View
                 _Act = new CAct();
             }
             _Act = a;
-            ActKeyword.Text = a.fActName;
+           // ActKeyword.Text = a.fActName;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            updateAct();
+        }
+
+        private void updateAct()
         {
             if (_Act == null)
                 return;
@@ -314,7 +331,7 @@ namespace AProject.View
                 SqlDataReader readFindImg = sqlfindImg.ExecuteReader();
                 string sqlActImg = "";
                 if (readFindImg.Read())
-                {                    
+                {
                     sqlActImg = "UPdate tActImgData set ";
                     sqlActImg += "[fActImg] = ";
                     sqlActImg += "@KfActImg,";
@@ -323,7 +340,7 @@ namespace AProject.View
                     sqlActImg += " WHERE [fActId] = ";
                     sqlActImg += "@KfActId; ";
                 }
-                else 
+                else
                 {
                     sqlActImg = "Insert tActImgData (";
                     sqlActImg += "[fActId],";
@@ -358,7 +375,7 @@ namespace AProject.View
                 readFindDay.Close();
                 string sqlActDay = "";
                 int i = 0;
-                for ( i = 0; i < fActDetailId.Count(); i++)
+                for (i = 0; i < fActDetailId.Count(); i++)
                 {
                     if (i < a.fActStartD.Count())//修改
                     {
@@ -389,7 +406,7 @@ namespace AProject.View
                     cmdDay.Parameters.Add(new SqlParameter("KfEndDate", (object)a.fActEndD[i]));
                     cmdDay.Parameters.Add(new SqlParameter("KfRegStartDate", (object)a.fRegStartD[i]));
                     cmdDay.Parameters.Add(new SqlParameter("KfRegDeadline", (object)a.fRegEndD[i]));
-                    cmdDay.Parameters.Add(new SqlParameter("KfActDetailId", (object)fActDetailId[i]));                    
+                    cmdDay.Parameters.Add(new SqlParameter("KfActDetailId", (object)fActDetailId[i]));
                     cmdDay.ExecuteNonQuery();
                 }
                 while (i < a.fActStartD.Count())//新增
@@ -414,26 +431,26 @@ namespace AProject.View
                     cmdDay.Parameters.Add(new SqlParameter("KfStartDate", (object)a.fActStartD[i]));
                     cmdDay.Parameters.Add(new SqlParameter("KfEndDate", (object)a.fActEndD[i]));
                     cmdDay.Parameters.Add(new SqlParameter("KfRegStartDate", (object)a.fRegStartD[i]));
-                    cmdDay.Parameters.Add(new SqlParameter("KfRegDeadline", (object)a.fRegEndD[i]));                    
+                    cmdDay.Parameters.Add(new SqlParameter("KfRegDeadline", (object)a.fRegEndD[i]));
                     cmdDay.ExecuteNonQuery();
                     i++;
                 }
                 transactionAct.Commit();
                 con.Close();
-                resetDisplay();
-            }
+                resetDisplay("select * from tActInformation");
+        }
             catch (Exception E)
             {
                 MessageBox.Show(E.Message);
                 transactionAct.Rollback();
                 MessageBox.Show("活動新增失敗");
-                resetDisplay();
-            }
-        }
+                resetDisplay("select * from tActInformation");
+    }
+}
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            resetDisplay();
+            resetDisplay("select * from tActInformation");
         }
 
         private void copyAct_Click(object sender, EventArgs e)
@@ -475,7 +492,7 @@ namespace AProject.View
 
                 sqlTransaction.Commit();
                 con.Close();
-                resetDisplay();
+                resetDisplay("select * from tActInformation");
             }
             catch (Exception ex)
             {
@@ -486,7 +503,12 @@ namespace AProject.View
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-
+            string sqlfind = "select * from tActInformation where ";
+            sqlfind += "fActName like @Keyword or ";
+            sqlfind += "fActLocation like @Keyword or ";
+            sqlfind += "fActDescription like @Keyword or ";
+            sqlfind += "fActProcess like @Keyword";
+            resetDisplay(sqlfind); 
         }
     }
 }

@@ -67,6 +67,7 @@
             this.btnActCreate.Name = "btnActCreate";
             this.btnActCreate.Size = new System.Drawing.Size(100, 36);
             this.btnActCreate.Text = "新增";
+            this.btnActCreate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActCreate.ToolTipText = "建立新活動";
             this.btnActCreate.Click += new System.EventHandler(this.btnCreatAct_Click);
             // 
@@ -79,6 +80,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(100, 36);
             this.toolStripButton1.Text = "複製";
+            this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripButton1.ToolTipText = "複製並建立為新活動";
             this.toolStripButton1.Click += new System.EventHandler(this.copyAct_Click);
             // 
@@ -91,6 +93,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(100, 36);
             this.toolStripButton3.Text = "修改";
+            this.toolStripButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripButton3.ToolTipText = "修改現存活動資料";
             this.toolStripButton3.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -114,7 +117,7 @@
             this.ActKeyword.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ActKeyword.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.ActKeyword.Name = "ActKeyword";
-            this.ActKeyword.Size = new System.Drawing.Size(100, 41);
+            this.ActKeyword.Size = new System.Drawing.Size(160, 41);
             // 
             // toolStripButton2
             // 
@@ -125,6 +128,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(100, 36);
             this.toolStripButton2.Text = "重整";
+            this.toolStripButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripButton2.ToolTipText = "修改現存活動資料";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
@@ -137,6 +141,7 @@
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(100, 36);
             this.toolStripButton5.Text = "刪除";
+            this.toolStripButton5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripButton5.ToolTipText = "修改現存活動資料";
             this.toolStripButton5.Click += new System.EventHandler(this.btnDelete_Click);
             // 

@@ -69,12 +69,12 @@ namespace AProject.View
                 txtActSch.Text = _activity.fActSch;
                 txtActDescription.Text = _activity.fActDescription;
                 btnStatusT.Checked =_activity.fActStatus;
+                btnstatusF.Checked = !_activity.fActStatus;
                 if (_activity.fActImg != null)
                 {
                     Stream streamImg = new MemoryStream(_activity.fActImg);
                     pictureBox1.Image = Bitmap.FromStream(streamImg);
                 }
-
                 ActBatchDate();
             }
         }
@@ -84,7 +84,6 @@ namespace AProject.View
             get { return this.Text; }
             set { this.Text = value; }
         }
-
 
         private void FrmActEditor_Load(object sender, EventArgs e)
         {
@@ -234,9 +233,11 @@ namespace AProject.View
                 {
                     MessageBox.Show("活動進行期間，不可下架活動");
                     btnStatusT.Checked = true;
+                    btnstatusF.Checked = false;
                     return;
                 }
             }
+            _activity.fActClosed = "N/A";
             _isOk = DialogResult.OK;
             this.Close();
         }
@@ -280,6 +281,7 @@ namespace AProject.View
                 {
                     MessageBox.Show("活動進行期間，不可下架活動");
                     btnStatusT.Checked = true;
+                    btnstatusF.Checked = false;
                     return;
                 }
             }

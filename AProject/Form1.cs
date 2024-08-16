@@ -20,6 +20,8 @@ namespace AProject
     {
         FrmActManager fAM;
         FrmActRecord fAR;
+        public int loginId{get;}
+        private int _loginId;
         public Form1()
         {
             InitializeComponent();
@@ -106,7 +108,7 @@ namespace AProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            (new FrmLogin()).ShowDialog();
+           // (new FrmLogin()).ShowDialog();        
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
