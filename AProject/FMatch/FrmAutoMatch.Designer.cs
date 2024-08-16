@@ -290,6 +290,7 @@
             this.Name = "FrmAutoMatch";
             this.Text = "FrmManualMatch";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmAutoMatch_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmAutoMatch_Paint);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -614,7 +614,11 @@ namespace AProject.FOrder
                           od.fProductReview
                    FROM tOrderDetail od
                    JOIN tOrder o ON od.fOrderId = o.fOrderId
-                   WHERE od.fProductReview LIKE @K_KEYWORD";
+                   WHERE (od.fProductReview LIKE @K_KEYWORD
+                      OR od.fReviewDate LIKE @K_KEYWORD
+                      OR od.fReviewScore LIKE @K_KEYWORD
+                      OR o.fUserId LIKE @K_KEYWORD)";
+                  //WHERE od.fProductReview LIKE @K_KEYWORD;
 
             displayBySql(sql, dataGridView3);
         }

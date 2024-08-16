@@ -38,6 +38,7 @@
             // 
             this.fbPassword.fieldName = "密碼:";
             this.fbPassword.fieldValue = "qwer1234";
+            this.fbPassword.ForeColor = System.Drawing.Color.White;
             this.fbPassword.Location = new System.Drawing.Point(139, 99);
             this.fbPassword.Name = "fbPassword";
             this.fbPassword.Size = new System.Drawing.Size(353, 34);
@@ -47,6 +48,7 @@
             // 
             this.fbEmail.fieldName = "信箱:";
             this.fbEmail.fieldValue = "focus911209@gmail.com";
+            this.fbEmail.ForeColor = System.Drawing.Color.White;
             this.fbEmail.Location = new System.Drawing.Point(139, 41);
             this.fbEmail.Name = "fbEmail";
             this.fbEmail.Size = new System.Drawing.Size(353, 34);
@@ -54,6 +56,7 @@
             // 
             // button1
             // 
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.button1.Location = new System.Drawing.Point(349, 172);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 40);
@@ -64,6 +67,7 @@
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.button2.Location = new System.Drawing.Point(216, 172);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(101, 40);
@@ -75,6 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(641, 273);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

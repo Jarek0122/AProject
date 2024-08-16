@@ -169,7 +169,7 @@ namespace AProject.FUser
                 isColorChanged = !isColorChanged;
                 r.DefaultCellStyle.BackColor = Color.White;
                 if (isColorChanged)
-                    r.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+                    r.DefaultCellStyle.BackColor = Color.FromArgb(255, 204, 217);
                 r.DefaultCellStyle.Font = new Font("微軟正黑體", 13);
                 r.Height = 40;
                 r.HeaderCell.Value = count.ToString();

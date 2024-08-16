@@ -279,5 +279,10 @@ namespace AProject.FMatch
         {
             resetGridStyle();
         }
+
+        private void FrmAutoMatch_Load(object sender, EventArgs e)
+        {
+
+        }
     }  
 }
