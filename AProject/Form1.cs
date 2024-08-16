@@ -125,7 +125,7 @@ namespace AProject
 
         private void toolStripButton10_Click(object sender, EventArgs e)
         {
-            FrmAdverTisement newForm = new FrmAdverTisement();
+            FAd.Floading newForm = new FAd.Floading();
             newForm.MdiParent = this;
             newForm.Show();
         }

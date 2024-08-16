@@ -109,6 +109,12 @@
     <Compile Include="COrder\CDonation.cs" />
     <Compile Include="COrder\COrder.cs" />
     <Compile Include="COrder\COrderDetail.cs" />
+    <Compile Include="FAd\Floading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAd\Floading.Designer.cs">
+      <DependentUpon>Floading.cs</DependentUpon>
+    </Compile>
     <Compile Include="FAd\FrmAddAD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
       <DependentUpon>FieldBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Component\FieldBox.resx" />
+    <EmbeddedResource Include="FAd\Floading.resx">
+      <DependentUpon>Floading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FAd\FrmAddAD.resx">
       <DependentUpon>FrmAddAD.cs</DependentUpon>
     </EmbeddedResource>
