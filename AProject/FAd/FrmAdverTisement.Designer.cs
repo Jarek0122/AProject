@@ -45,11 +45,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AdDGV = new System.Windows.Forms.DataGridView();
-            this.廣告名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.會員名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.廣告類型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.圖片路徑 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.網站連結 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.adDataSet = new AProject.adDataSet();
             this.btnreset = new System.Windows.Forms.Button();
@@ -64,6 +59,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.廣告名稱 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.廣告名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.會員名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.廣告類型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.圖片路徑 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.網站連結 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -267,46 +267,6 @@
             this.AdDGV.TabIndex = 5;
             this.AdDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // 廣告名
-            // 
-            this.廣告名.DataPropertyName = "AdName";
-            this.廣告名.HeaderText = "廣告名";
-            this.廣告名.MinimumWidth = 8;
-            this.廣告名.Name = "廣告名";
-            this.廣告名.ReadOnly = true;
-            // 
-            // 會員名稱
-            // 
-            this.會員名稱.DataPropertyName = "UserName";
-            this.會員名稱.HeaderText = "會員名稱";
-            this.會員名稱.MinimumWidth = 8;
-            this.會員名稱.Name = "會員名稱";
-            this.會員名稱.ReadOnly = true;
-            // 
-            // 廣告類型
-            // 
-            this.廣告類型.DataPropertyName = "Adtype";
-            this.廣告類型.HeaderText = "廣告類型";
-            this.廣告類型.MinimumWidth = 8;
-            this.廣告類型.Name = "廣告類型";
-            this.廣告類型.ReadOnly = true;
-            // 
-            // 圖片路徑
-            // 
-            this.圖片路徑.DataPropertyName = "ImagePath";
-            this.圖片路徑.HeaderText = "圖片路徑";
-            this.圖片路徑.MinimumWidth = 8;
-            this.圖片路徑.Name = "圖片路徑";
-            this.圖片路徑.ReadOnly = true;
-            // 
-            // 網站連結
-            // 
-            this.網站連結.DataPropertyName = "Link";
-            this.網站連結.HeaderText = "網站連結";
-            this.網站連結.MinimumWidth = 8;
-            this.網站連結.Name = "網站連結";
-            this.網站連結.ReadOnly = true;
-            // 
             // adDataSetBindingSource
             // 
             this.adDataSetBindingSource.DataSource = this.adDataSet;
@@ -454,6 +414,46 @@
             this.廣告名稱.TabIndex = 1;
             this.廣告名稱.Text = "廣告名稱";
             this.廣告名稱.Click += new System.EventHandler(this.廣告名稱_Click);
+            // 
+            // 廣告名
+            // 
+            this.廣告名.DataPropertyName = "fAdName";
+            this.廣告名.HeaderText = "廣告名";
+            this.廣告名.MinimumWidth = 8;
+            this.廣告名.Name = "廣告名";
+            this.廣告名.ReadOnly = true;
+            // 
+            // 會員名稱
+            // 
+            this.會員名稱.DataPropertyName = "fUserName";
+            this.會員名稱.HeaderText = "會員名稱";
+            this.會員名稱.MinimumWidth = 8;
+            this.會員名稱.Name = "會員名稱";
+            this.會員名稱.ReadOnly = true;
+            // 
+            // 廣告類型
+            // 
+            this.廣告類型.DataPropertyName = "fAdtype";
+            this.廣告類型.HeaderText = "廣告類型";
+            this.廣告類型.MinimumWidth = 8;
+            this.廣告類型.Name = "廣告類型";
+            this.廣告類型.ReadOnly = true;
+            // 
+            // 圖片路徑
+            // 
+            this.圖片路徑.DataPropertyName = "fImagePath";
+            this.圖片路徑.HeaderText = "圖片路徑";
+            this.圖片路徑.MinimumWidth = 8;
+            this.圖片路徑.Name = "圖片路徑";
+            this.圖片路徑.ReadOnly = true;
+            // 
+            // 網站連結
+            // 
+            this.網站連結.DataPropertyName = "fLink";
+            this.網站連結.HeaderText = "網站連結";
+            this.網站連結.MinimumWidth = 8;
+            this.網站連結.Name = "網站連結";
+            this.網站連結.ReadOnly = true;
             // 
             // FrmAdverTisement
             // 

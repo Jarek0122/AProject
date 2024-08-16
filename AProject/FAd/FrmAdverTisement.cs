@@ -27,11 +27,11 @@ namespace AProject.FAd
             {
                 if (_CAD == null)
                     _CAD = new CAD();
-                _CAD.AdName = LBad.Text;
-                _CAD.UserName = Lbuser.Text;
-                _CAD.AdType = SelectAd.Text;
-                _CAD.ImagePath = LbImagepath.Text;
-                _CAD.Link = LbNet.Text;
+                _CAD.fAdName = LBad.Text;
+                _CAD.fUserName = Lbuser.Text;
+                _CAD.fAdType = SelectAd.Text;
+                _CAD.fImagePath = LbImagepath.Text;
+                _CAD.fLink = LbNet.Text;
 
 
 
@@ -41,11 +41,11 @@ namespace AProject.FAd
             {
 
                 _CAD = value;
-                LBad.Text = _CAD.AdName;
-                Lbuser.Text = _CAD.UserName;
-                SelectAd.Text = _CAD.AdType;
-                LbImagepath.Text = _CAD.ImagePath;
-                LbNet.Text = _CAD.Link;
+                LBad.Text = _CAD.fAdName;
+                Lbuser.Text = _CAD.fUserName;
+                SelectAd.Text = _CAD.fAdType;
+                LbImagepath.Text = _CAD.fImagePath;
+                LbNet.Text = _CAD.fLink;
 
 
             }
@@ -56,7 +56,7 @@ namespace AProject.FAd
         private void populate()
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=.;Initial Catalog=ad;Integrated Security=True;";
+            con.ConnectionString = @"Data Source = 192.168.35.57,1433; Initial Catalog = Aproject; User ID = Ray; Encrypt=False;";
             con.Open();
 
             SqlCommand cmd = new SqlCommand();
@@ -66,7 +66,7 @@ namespace AProject.FAd
 
 
 
-            string query = "select *from Advertisement ";
+            string query = "select *from tAdvertisement ";
             SqlDataAdapter sda = new SqlDataAdapter(query, con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
 
@@ -80,8 +80,7 @@ namespace AProject.FAd
         private void Filter()
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=.;Initial Catalog=ad;Integrated Security=True;";
-            con.Open();
+            con.ConnectionString = @"Data Source = 192.168.35.57,1433; Initial Catalog = Aproject; User ID = Ray; Encrypt=False;";
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
@@ -91,7 +90,7 @@ namespace AProject.FAd
 
 
 
-            string query = "select *from Advertisement where AdType = '" + Choosetype.SelectedItem.ToString() + "'";
+            string query = "select *from tAdvertisement where fAdType = '" + Choosetype.SelectedItem.ToString() + "'";
             SqlDataAdapter sda = new SqlDataAdapter(query, con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
@@ -206,11 +205,11 @@ namespace AProject.FAd
             {
                 DataTable dt = AdDGV.DataSource as DataTable;
                 DataRow dr = dt.NewRow();
-                dr["AdName"] = LBad.Text;
-                dr["UserName"] = Lbuser.Text;
-                dr["AdType"] = SelectAd.Text;
-                dr["ImagePath"] = LbImagepath.Text;
-                dr["Link"] = LbNet;
+                dr["fAdName"] = LBad.Text;
+                dr["fUserName"] = Lbuser.Text;
+                dr["fAdType"] = SelectAd.Text;
+                dr["fImagePath"] = LbImagepath.Text;
+                dr["fLink"] = LbNet;
                 dt.Rows.Add(dr);
                 create(CAD);
                 MessageBox.Show("廣告上架成功");
@@ -232,19 +231,19 @@ namespace AProject.FAd
         private void create(CAD p)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=.;Initial Catalog=ad;Integrated Security=True;";
+            con.ConnectionString = @"Data Source = 192.168.35.57,1433; Initial Catalog = Aproject; User ID = Ray; Encrypt=False;";
             con.Open();
 
-            String sql = "INSERT INTO Advertisement( AdName, UserName, AdType, ImagePath, Link) VALUES( @AdName, @UserName, @AdType, @ImagePath, @Link)";
+            String sql = "INSERT INTO tAdvertisement( fAdName, fUserName, fAdType, fImagePath,fLink) VALUES( @fAdName, @fUserName, @fAdType, @fImagePath, @fLink)";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = sql;
 
-            cmd.Parameters.AddWithValue("@AdName", p.AdName);
-            cmd.Parameters.AddWithValue("@UserName", p.UserName);
-            cmd.Parameters.AddWithValue("@AdType", p.AdType);
-            cmd.Parameters.AddWithValue("@ImagePath", p.ImagePath);
-            cmd.Parameters.AddWithValue("@Link", p.Link);
+            cmd.Parameters.AddWithValue("@fAdName", p.fAdName);
+            cmd.Parameters.AddWithValue("@fUserName", p.fUserName);
+            cmd.Parameters.AddWithValue("@fAdType", p.fAdType);
+            cmd.Parameters.AddWithValue("@fImagePath", p.fImagePath);
+            cmd.Parameters.AddWithValue("@fLink", p.fLink);
             cmd.ExecuteNonQuery();
 
 
@@ -308,13 +307,13 @@ namespace AProject.FAd
 
             try
             {
-                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=ad;Integrated Security=True;"))
+                using (SqlConnection con = new SqlConnection(@"Data Source = 192.168.35.57,1433; Initial Catalog = Aproject; User ID = Ray; Encrypt=False;"))
                 {
                     con.Open();
 
-                    string query = "DELETE FROM Advertisement WHERE AdName = @AdName";
+                    string query = "DELETE FROM tAdvertisement WHERE fAdName = @fAdName";
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@AdName", key);
+                    cmd.Parameters.AddWithValue("@fAdName", key);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -327,8 +326,8 @@ namespace AProject.FAd
                         MessageBox.Show("未找到要刪除的廣告");
                     }
 
-                    populate(); 
-                    reset(); 
+                    populate();
+                    reset();
                 }
             }
             catch (Exception ex)
@@ -358,18 +357,18 @@ namespace AProject.FAd
 
             try
             {
-                using (SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=ad;Integrated Security=True;"))
+                using (SqlConnection con = new SqlConnection(@"Data Source = 192.168.35.57,1433; Initial Catalog = Aproject; User ID = Ray; Encrypt=False;"))
                 {
                     con.Open();
 
-                    string query = "UPDATE Advertisement SET AdName = @AdName, UserName = @UserName, AdType = @AdType, ImagePath = @ImagePath, Link = @Link WHERE AdName = @OldAdName";
+                    string query = "UPDATE tAdvertisement SET fAdName = @fAdName, fUserName = @fUserName, fAdType = @fAdType, fImagePath = @fImagePath, fLink = @fLink WHERE fAdName = @OldfAdName";
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@AdName", LBad.Text);
-                    cmd.Parameters.AddWithValue("@UserName", Lbuser.Text);
-                    cmd.Parameters.AddWithValue("@AdType", SelectAd.Text);
-                    cmd.Parameters.AddWithValue("@ImagePath", LbImagepath.Text);
-                    cmd.Parameters.AddWithValue("@Link", LbNet.Text);
-                    cmd.Parameters.AddWithValue("@OldAdName", key); 
+                    cmd.Parameters.AddWithValue("@fAdName", LBad.Text);
+                    cmd.Parameters.AddWithValue("@fUserName", Lbuser.Text);
+                    cmd.Parameters.AddWithValue("@fAdType", SelectAd.Text);
+                    cmd.Parameters.AddWithValue("@fImagePath", LbImagepath.Text);
+                    cmd.Parameters.AddWithValue("@fLink", LbNet.Text);
+                    cmd.Parameters.AddWithValue("@OldfAdName", key); 
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
