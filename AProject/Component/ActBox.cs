@@ -22,6 +22,7 @@ namespace AProject.Component
         }
 
         public event D boxClick;
+        public event D DoubleClick;
         private CAct _act; 
         public CAct act 
         {
@@ -78,20 +79,19 @@ namespace AProject.Component
                     foreach (Control d in c.Controls)
                     {
                         d.Click += ActBox_Click;
+                        d.DoubleClick += ActBox_doubleClick;
                     }                
                 c.Click += ActBox_Click;
             }
             
         }
 
-        //private void ActBox_MouseLeave(object sender, EventArgs e)
-        //{
-        //    this.BorderStyle = BorderStyle.None;
-        //}
-
-        //private void ActBox_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    this.BorderStyle = BorderStyle.FixedSingle;
-        //}
+        private void ActBox_doubleClick(object sender, EventArgs e)
+        {
+            if (DoubleClick != null)
+            {
+                DoubleClick(this.act);
+            }
+        }
     }
 }

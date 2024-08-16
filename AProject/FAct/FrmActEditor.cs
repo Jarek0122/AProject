@@ -41,7 +41,7 @@ namespace AProject.View
                 _activity.fActLocation = txtActlocation.fTxtBoxValue;
                 _activity.fActFee = Convert.ToDecimal(txtActFee.fTxtBoxValue);
                 _activity.fActNMax = Convert.ToInt32(txtActNMax.fTxtBoxValue);
-                _activity.fActBatch = Convert.ToInt32(BatchValue.Value);                
+                _activity.fActBatch = Convert.ToInt32(BatchValue.Value);
                 _activity.fActStartD = _ActStartD;
                 _activity.fActEndD = _ActEndD;
                 _activity.fRegStartD = _RegStartD;
@@ -50,14 +50,14 @@ namespace AProject.View
                 _activity.fActDescription = txtActDescription.Text;
                 _activity.fActStatus = btnStatusT.Checked;
                 return _activity;
-                
+
             }
             set
             {
                 _activity = value;
                 _activity.fUserId = FrmActManager.userId; //Form1.userId;
                 _activity.fEditorDay = DateTime.Now; //Form1.userId;
-                txtActName.fTxtBoxValue =  _activity.fActName;
+                txtActName.fTxtBoxValue = _activity.fActName;
                 txtActlocation.fTxtBoxValue = _activity.fActLocation;
                 txtActFee.fTxtBoxValue = _activity.fActFee.ToString();
                 txtActNMax.fTxtBoxValue = _activity.fActNMax.ToString();
@@ -68,13 +68,13 @@ namespace AProject.View
                 _RegEndD = _activity.fRegEndD;
                 txtActSch.Text = _activity.fActSch;
                 txtActDescription.Text = _activity.fActDescription;
-                btnStatusT.Checked =_activity.fActStatus;
+                btnStatusT.Checked = _activity.fActStatus;
+                btnstatusF.Checked = !_activity.fActStatus;
                 if (_activity.fActImg != null)
                 {
                     Stream streamImg = new MemoryStream(_activity.fActImg);
                     pictureBox1.Image = Bitmap.FromStream(streamImg);
                 }
-
                 ActBatchDate();
             }
         }
@@ -84,7 +84,6 @@ namespace AProject.View
             get { return this.Text; }
             set { this.Text = value; }
         }
-
 
         private void FrmActEditor_Load(object sender, EventArgs e)
         {
@@ -163,8 +162,8 @@ namespace AProject.View
                 _ActEndD = new List<string>();
                 _RegStartD = new List<string>();
                 _RegEndD = new List<string>();
-            }      
-            
+            }
+
             for (int i = 0; i < BatchValue.Value; i++)
             {
                 if (i < _ActStartD.Count)
@@ -185,7 +184,7 @@ namespace AProject.View
             }
             while (BatchValue.Value < _ActStartD.Count)
             {
-                _ActStartD.RemoveAt(_ActStartD.Count - 1 );
+                _ActStartD.RemoveAt(_ActStartD.Count - 1);
                 _ActEndD.RemoveAt(_ActEndD.Count - 1);
                 _RegStartD.RemoveAt(_RegStartD.Count - 1);
                 _RegEndD.RemoveAt(_RegEndD.Count - 1);
@@ -234,9 +233,11 @@ namespace AProject.View
                 {
                     MessageBox.Show("活動進行期間，不可下架活動");
                     btnStatusT.Checked = true;
+                    btnstatusF.Checked = false;
                     return;
                 }
             }
+            _activity.fActClosed = "N/A";
             _isOk = DialogResult.OK;
             this.Close();
         }
@@ -246,7 +247,7 @@ namespace AProject.View
             string msgerr = "";
             if (string.IsNullOrEmpty(txtActName.fTxtBoxValue))
                 msgerr += "請填寫活動名稱\r\n";
-            if(string.IsNullOrEmpty(txtActlocation.fTxtBoxValue))
+            if (string.IsNullOrEmpty(txtActlocation.fTxtBoxValue))
                 msgerr += "請填寫活動地點\r\n";
             if (string.IsNullOrEmpty(txtActlocation.fTxtBoxValue))
                 msgerr += "請填寫報名費用\r\n";
@@ -280,6 +281,7 @@ namespace AProject.View
                 {
                     MessageBox.Show("活動進行期間，不可下架活動");
                     btnStatusT.Checked = true;
+                    btnstatusF.Checked = false;
                     return;
                 }
             }
@@ -288,12 +290,13 @@ namespace AProject.View
                 if (Convert.ToDateTime(d) > DateTime.Now)
                 {
                     MessageBox.Show("活動尚未結束，不可結案");
-                    return ;
+                    return;
                 }
-            }            
+            }
             _isOk = DialogResult.OK;
             _activity.fActClosed = DateTime.Now.ToString("yyyy/MM/dd");
             this.Close();
         }
     }
 }
+

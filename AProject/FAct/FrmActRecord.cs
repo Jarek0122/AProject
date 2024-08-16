@@ -18,14 +18,15 @@ namespace AProject.View
             InitializeComponent();
         }
 
-        private string SqlconnectS = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;Persist Security Info=True;User ID=Lucy";
+        private string SqlconnectS = (new FrmActManager()).SqlconnectS;
+        //private string SqlconnectS = @"Data Source=192.168.35.57,1433;Initial Catalog=Aproject;Persist Security Info=True;User ID=Lucy";
         //private string SqlconnectS = @"Data Source=.;Initial Catalog=Aproject;Integrated Security=True;Encrypt=False";
         private SqlDataAdapter _adapterAct;
         private SqlCommandBuilder _builderAct;
         private SqlDataAdapter _adapterRecord;
         private SqlCommandBuilder _builderRecord;
-        private string _clickAct ;
-        private string _ActData ;
+        private string _clickAct;
+        private string _ActData;
         private DataSet ds;
         private void FrmActRecord_Load(object sender, EventArgs e)
         {
@@ -49,24 +50,24 @@ namespace AProject.View
             _builderRecord = new SqlCommandBuilder(_adapterRecord);
             DataTable dtr = ds.Tables.Add("報名清單");
             _adapterRecord.Fill(dtr);
-            
+
             con.Close();
 
-            ds.Tables.Add("單一活動查詢結果");
             ds.Tables["活動總表"].Columns.Add("報名人數");
             ds.Tables["活動總表"].Columns.Add("公開狀態");
+            ds.Tables["報名清單"].Columns.Add("報名狀態", typeof(bool));
 
             foreach (DataRow dr in dt.Rows)
             {
                 int Regcount = 0;
                 foreach (DataRow row in dtr.Rows)
                 {
-                    if (dr["fActDetailID"].Equals(row["fActDetailID"]) && (bool)row["fPaymentStatus"] == true) { Regcount++; }
+                    row["fRegStatus"] = (bool)row["fRegStatus"];
+                    if (dr["fActDetailID"].Equals(row["fActDetailID"]) && (bool)row["fPaymentStatus"]) { Regcount++; }
                 }
                 dr["報名人數"] = Regcount.ToString() + " / " + dr["fMaxNumber"].ToString();
                 dr["fActUpdateDate"] = Convert.ToDateTime(dr["fActUpdateDate"]).ToString("yyyy/MM/dd");
-
-                dr["fActClosed"] = (dr["fActClosed"] == DBNull.Value) ? "" : Convert.ToDateTime(dr["fActClosed"]).ToString("yyyy/MM/dd");
+                dr["fActClosed"] = (dr["fActClosed"] == DBNull.Value || dr["fActClosed"].Equals("N/A")) ? "" : Convert.ToDateTime(dr["fActClosed"]).ToString("yyyy/MM/dd");
                 dr["公開狀態"] = (bool)dr["fRemovalMark"] ? "公開" : "下架";
                 dr["fRegFee"] = Convert.ToInt32(dr["fRegFee"]).ToString();
             }
@@ -92,14 +93,13 @@ namespace AProject.View
                 c.HeaderCell.Value = countAct.ToString();
             }
             dataGridView1.Columns["fActId"].Visible = false;
-            dataGridView1.Columns["fImgId"].Visible = false;
+            // dataGridView1.Columns["fImgId"].Visible = false;
             dataGridView1.Columns["fMaxNumber"].Visible = false;
             dataGridView1.Columns["fRemovalMark"].Visible = false;
             dataGridView1.Columns["fActDescription"].Visible = false;
             dataGridView1.Columns["fActProcess"].Visible = false;
             dataGridView1.Columns["fActDetailId"].Visible = false;
             dataGridView1.Columns["fActId1"].Visible = false;
-            dataGridView1.Columns["fRemainingPlaces"].Visible = false;
             dataGridView1.Columns["廠商編號"].Width = 80;
             dataGridView1.Columns["活動名稱"].Width = 80;
             dataGridView1.Columns["地點"].Width = 80;
@@ -113,7 +113,7 @@ namespace AProject.View
             dataGridView1.Columns["更新日期"].Width = 80;
             dataGridView1.Columns["結案日期"].Width = 80;
             dataGridView1.RowHeadersVisible = true;
-            dataGridView1.RowHeadersWidth = 8;
+            dataGridView1.RowHeadersWidth = 10;
 
             dataGridView2.DataSource = ds.Tables["報名清單"];
             ds.Tables["報名清單"].Columns["fUserId"].ColumnName = "填表會員編號";
@@ -122,47 +122,58 @@ namespace AProject.View
             ds.Tables["報名清單"].Columns["fRegTel"].ColumnName = "電話";
             ds.Tables["報名清單"].Columns["fRegEmail"].ColumnName = "信箱";
             ds.Tables["報名清單"].Columns["fRecipientAddress"].ColumnName = "地址";
-            ds.Tables["報名清單"].Columns["fRegStatus"].ColumnName = "報名狀態";
-            //ds.Tables["報名清單"].Columns["fPaymentStatus"].ColumnName = "付款狀態";
+            ds.Tables["報名清單"].Columns["fPaymentStatus"].SetOrdinal(ds.Tables["報名清單"].Columns.Count - 1);
+            ds.Tables["報名清單"].Columns["fPaymentStatus"].ColumnName = "付款狀態";
             ds.Tables["報名清單"].Columns["fRegDate"].ColumnName = "報名日期";
             dataGridView2.Columns["fRegDetailsId"].Visible = false;
+            dataGridView2.Columns["fRegStatus"].Visible = false;
             dataGridView2.Columns["fRegID"].Visible = false;
             dataGridView2.Columns["fRegID1"].Visible = false;
             dataGridView2.Columns["fActDetailID"].Visible = false;
             dataGridView2.Columns["fActPayment"].Visible = false;
             dataGridView2.Columns["fPaymentInfo"].Visible = false;
-
-        }
-
-        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //string sortClick = dataGridView1.Columns[e.ColumnIndex].Name ;
-            //sortClick += dataGridView1.SortOrder.ToString().Equals("Ascending")? " ASCE": " DESC";
-            ////MessageBox.Show(sortClick);
+            dataGridView2.Columns["報名狀態"].Visible = false;
+            dataGridView2.Columns["參加者姓名"].Width = 100;
+            dataGridView2.Columns["電話"].Width = 100;
+            dataGridView2.Columns["信箱"].Width = 200;
+            dataGridView2.Columns["地址"].Width = 260;
+            dataGridView2.Columns["報名日期"].Width = 80;
+            dataGridView2.Columns["付款狀態"].Width = 80;
+            dataGridView2.Columns["報名狀態"].Width = 80;
+            dataGridView2.RowHeadersVisible = true;
+            dataGridView2.RowHeadersWidth = 10;
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex > dataGridView1.Rows.Count - 1 || e.RowIndex < 0 || dataGridView1.DataSource == null)
+                return;
             DataGridViewRow dr = dataGridView1.Rows[e.RowIndex];
             _clickAct = (dr.Cells["活動名稱"].Value.ToString());
-            MessageBox.Show(_clickAct);
 
-            
             DataTable dt = ds.Tables["報名清單"].Clone();
             foreach (DataRow drf in ds.Tables["報名清單"].Rows)
             {
                 if ((drf["fActDetailId"]).ToString().Equals(dr.Cells["fActDetailId"].Value.ToString()))
-                   dt.ImportRow(drf);
+                    dt.ImportRow(drf);
             }
             dataGridView2.DataSource = dt;
 
-            _ActData = "    開始日期 : " + dr.Cells["開始日期"].Value.ToString();
-            _ActData += "    結束日期 : " + dr.Cells["結束日期"].Value.ToString();
-            _ActData += "    報名人數 : " + dr.Cells["報名人數"].Value.ToString();
+            _ActData = $"    開始日期:  {dr.Cells["開始日期"].Value.ToString()}";
+            _ActData += $"    結束日期 : {dr.Cells["結束日期"].Value.ToString()}";
+            _ActData += $"    報名人數 : {dr.Cells["報名人數"].Value.ToString()}";
+            _ActData = _ActData.Replace("\r", "").Replace("\n", "");
+            updateText();
         }
 
         private void dataGridView2_DataSourceChanged(object sender, EventArgs e)
         {
+            updateText();
+        }
+
+        private void updateText()
+        {
+            toolStripLabel1.Size = new Size(toolStrip1.Width * 180 / 373, 33);
             toolStripLabel1.Text = "目前顯示 " + (string.IsNullOrEmpty(_clickAct) ? "全部" : _clickAct) + " 報名人員資料" + _ActData;
             _clickAct = "";
         }

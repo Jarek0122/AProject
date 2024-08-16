@@ -92,7 +92,7 @@ namespace AProject.View
             // 
             // txtPanel
             // 
-            this.txtPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtPanel.Controls.Add(this.GroupBox3);
             this.txtPanel.Controls.Add(this.groupBox2);
@@ -343,7 +343,7 @@ namespace AProject.View
             // 
             // txtActFee
             // 
-            this.txtActFee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtActFee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtActFee.fEnable = true;
             this.txtActFee.fLabelText = "報名費用";
@@ -360,7 +360,7 @@ namespace AProject.View
             // 
             // txtActNMax
             // 
-            this.txtActNMax.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtActNMax.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtActNMax.fEnable = true;
             this.txtActNMax.fLabelText = "人數上限";
@@ -377,7 +377,7 @@ namespace AProject.View
             // 
             // txtActlocation
             // 
-            this.txtActlocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtActlocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtActlocation.fEnable = true;
             this.txtActlocation.fLabelText = "地     點";
@@ -394,7 +394,7 @@ namespace AProject.View
             // 
             // txtActName
             // 
-            this.txtActName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtActName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtActName.fEnable = true;
             this.txtActName.fLabelText = "活動名稱";
@@ -450,7 +450,7 @@ namespace AProject.View
 
         }
 
-        
+
 
         #endregion
         private Component.ActTextBox txtActName;

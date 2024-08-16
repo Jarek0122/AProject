@@ -102,7 +102,7 @@
             // 
             this.活動訂單ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.活動訂單ToolStripMenuItem.Name = "活動訂單ToolStripMenuItem";
-            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.活動訂單ToolStripMenuItem.Text = "活動訂單";
             this.活動訂單ToolStripMenuItem.Click += new System.EventHandler(this.活動訂單ToolStripMenuItem_Click);
             // 
@@ -110,7 +110,7 @@
             // 
             this.活動上架ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.活動上架ToolStripMenuItem.Name = "活動上架ToolStripMenuItem";
-            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.活動上架ToolStripMenuItem.Text = "活動上架";
             this.活動上架ToolStripMenuItem.Click += new System.EventHandler(this.活動上架ToolStripMenuItem_Click);
             // 
@@ -118,8 +118,9 @@
             // 
             this.活動廣告ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.活動廣告ToolStripMenuItem.Name = "活動廣告ToolStripMenuItem";
-            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.活動廣告ToolStripMenuItem.Text = "活動廣告";
+            this.活動廣告ToolStripMenuItem.Visible = false;
             // 
             // toolStripButton6
             // 
@@ -179,6 +180,7 @@
             this.toolStripButton8.Size = new System.Drawing.Size(180, 35);
             this.toolStripButton8.Text = "服務管理";
             this.toolStripButton8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButton8.Visible = false;
             // 
             // 收驚管理ToolStripMenuItem
             // 
@@ -258,6 +260,7 @@
             this.toolStripButton11.Size = new System.Drawing.Size(180, 35);
             this.toolStripButton11.Text = "問題管理";
             this.toolStripButton11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButton11.Visible = false;
             // 
             // toolStripDropDownButton1
             // 
@@ -280,8 +283,9 @@
             // 
             this.廠商管理ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.廠商管理ToolStripMenuItem.Name = "廠商管理ToolStripMenuItem";
-            this.廠商管理ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.廠商管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.廠商管理ToolStripMenuItem.Text = "廠商管理";
+            this.廠商管理ToolStripMenuItem.Visible = false;
             // 
             // 會員管理ToolStripMenuItem
             // 
@@ -300,8 +304,9 @@
             // 
             this.管理設定ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.管理設定ToolStripMenuItem.Name = "管理設定ToolStripMenuItem";
-            this.管理設定ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.管理設定ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.管理設定ToolStripMenuItem.Text = "管理設定";
+            this.管理設定ToolStripMenuItem.Visible = false;
             // 
             // toolStripButton9
             // 
