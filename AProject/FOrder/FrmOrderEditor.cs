@@ -40,6 +40,7 @@ namespace AProject.FOrder
             cbShippingInfo.Items.Add("超商取貨");
             cbShippingInfo.Items.Add("郵局寄送");
             cbReturnInfo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbReturnInfo.Items.Add(" ");
             cbReturnInfo.Items.Add("宅配");
             cbReturnInfo.Items.Add("自行寄回");
         }
@@ -163,5 +164,6 @@ namespace AProject.FOrder
         {
             Close();
         }
+
     }
 }

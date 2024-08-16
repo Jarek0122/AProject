@@ -55,12 +55,10 @@
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -104,7 +102,7 @@
             // 
             this.活動訂單ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.活動訂單ToolStripMenuItem.Name = "活動訂單ToolStripMenuItem";
-            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.活動訂單ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
             this.活動訂單ToolStripMenuItem.Text = "活動訂單";
             this.活動訂單ToolStripMenuItem.Click += new System.EventHandler(this.活動訂單ToolStripMenuItem_Click);
             // 
@@ -112,7 +110,7 @@
             // 
             this.活動上架ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.活動上架ToolStripMenuItem.Name = "活動上架ToolStripMenuItem";
-            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.活動上架ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
             this.活動上架ToolStripMenuItem.Text = "活動上架";
             this.活動上架ToolStripMenuItem.Click += new System.EventHandler(this.活動上架ToolStripMenuItem_Click);
             // 
@@ -120,7 +118,7 @@
             // 
             this.活動廣告ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.活動廣告ToolStripMenuItem.Name = "活動廣告ToolStripMenuItem";
-            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.活動廣告ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
             this.活動廣告ToolStripMenuItem.Text = "活動廣告";
             // 
             // toolStripButton6
@@ -155,7 +153,7 @@
             // 
             this.btnEditProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnEditProd.Name = "btnEditProd";
-            this.btnEditProd.Size = new System.Drawing.Size(224, 30);
+            this.btnEditProd.Size = new System.Drawing.Size(178, 30);
             this.btnEditProd.Text = "編輯商品";
             this.btnEditProd.Click += new System.EventHandler(this.btnEditProd_Click);
             // 
@@ -163,7 +161,7 @@
             // 
             this.btnEditProdStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnEditProdStock.Name = "btnEditProdStock";
-            this.btnEditProdStock.Size = new System.Drawing.Size(224, 30);
+            this.btnEditProdStock.Size = new System.Drawing.Size(178, 30);
             this.btnEditProdStock.Text = "編輯庫存";
             this.btnEditProdStock.Visible = false;
             // 
@@ -186,14 +184,14 @@
             // 
             this.收驚管理ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.收驚管理ToolStripMenuItem.Name = "收驚管理ToolStripMenuItem";
-            this.收驚管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.收驚管理ToolStripMenuItem.Size = new System.Drawing.Size(138, 30);
             this.收驚管理ToolStripMenuItem.Text = "收驚";
             // 
             // 點燈ToolStripMenuItem
             // 
             this.點燈ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.點燈ToolStripMenuItem.Name = "點燈ToolStripMenuItem";
-            this.點燈ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.點燈ToolStripMenuItem.Size = new System.Drawing.Size(138, 30);
             this.點燈ToolStripMenuItem.Text = "點燈";
             // 
             // btnMatchMainten
@@ -216,7 +214,7 @@
             // 
             this.會員偏好維護ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.會員偏好維護ToolStripMenuItem.Name = "會員偏好維護ToolStripMenuItem";
-            this.會員偏好維護ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.會員偏好維護ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
             this.會員偏好維護ToolStripMenuItem.Text = "會員偏好維護";
             this.會員偏好維護ToolStripMenuItem.Click += new System.EventHandler(this.會員偏好維護ToolStripMenuItem_Click);
             // 
@@ -224,7 +222,7 @@
             // 
             this.手動配對管理ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.手動配對管理ToolStripMenuItem.Name = "手動配對管理ToolStripMenuItem";
-            this.手動配對管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.手動配對管理ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
             this.手動配對管理ToolStripMenuItem.Text = "自動配對管理";
             this.手動配對管理ToolStripMenuItem.Click += new System.EventHandler(this.自動配對管理ToolStripMenuItem_Click);
             // 
@@ -232,7 +230,7 @@
             // 
             this.配對狀態查看ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.配對狀態查看ToolStripMenuItem.Name = "配對狀態查看ToolStripMenuItem";
-            this.配對狀態查看ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.配對狀態查看ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
             this.配對狀態查看ToolStripMenuItem.Text = "配對狀態查看";
             this.配對狀態查看ToolStripMenuItem.Click += new System.EventHandler(this.配對狀態查看ToolStripMenuItem_Click);
             // 
@@ -282,27 +280,27 @@
             // 
             this.廠商管理ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.廠商管理ToolStripMenuItem.Name = "廠商管理ToolStripMenuItem";
-            this.廠商管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.廠商管理ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
             this.廠商管理ToolStripMenuItem.Text = "廠商管理";
             // 
             // 會員管理ToolStripMenuItem
             // 
             this.會員管理ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.會員管理ToolStripMenuItem.Name = "會員管理ToolStripMenuItem";
-            this.會員管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.會員管理ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
             this.會員管理ToolStripMenuItem.Text = "會員管理";
             this.會員管理ToolStripMenuItem.Click += new System.EventHandler(this.會員管理ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(175, 6);
             // 
             // 管理設定ToolStripMenuItem
             // 
             this.管理設定ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.管理設定ToolStripMenuItem.Name = "管理設定ToolStripMenuItem";
-            this.管理設定ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.管理設定ToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
             this.管理設定ToolStripMenuItem.Text = "管理設定";
             // 
             // toolStripButton9
@@ -317,45 +315,20 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1134, 100);
             this.panel1.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoEllipsis = true;
-            this.label1.BackColor = System.Drawing.Color.Maroon;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(100, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1032, 98);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "妙語服務整合平台後台管理系統";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Maroon;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 98);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Maroon;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -372,6 +345,22 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoEllipsis = true;
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1132, 98);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "妙語服務整合平台後台管理系統";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -390,7 +379,6 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -409,7 +397,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripButton4;
         private System.Windows.Forms.ToolStripMenuItem 活動訂單ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 活動上架ToolStripMenuItem;
